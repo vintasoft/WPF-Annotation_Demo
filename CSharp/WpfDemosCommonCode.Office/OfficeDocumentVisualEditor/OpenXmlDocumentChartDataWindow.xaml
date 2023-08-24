@@ -1,0 +1,80 @@
+﻿<Window x:Class="WpfDemosCommonCode.Office.OpenXmlDocumentChartDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemosCommonCode.Office"
+        xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+        mc:Ignorable="d"
+        Title="Document Charts" Height="240" Width="700" Topmost="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="212"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Row="0">
+            <Label>Chart Name</Label>
+            <ComboBox Margin="3,0" Name="chartComboBox" VerticalAlignment="Center" IsEditable="False" Height="23" SelectionChanged="chartComboBox_SelectionChanged" />
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+            <Label Grid.Row="0" Grid.Column="0">Title</Label>
+            <TextBox Margin="3,0" Name="titleTextBox" VerticalAlignment="Center"  Height="23" TextChanged="titleTextBox_TextChanged" />
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Right">
+            <Button Name="okButton" Width="75" Height="23" IsDefault="True" Click="okButton_Click" Margin="3">OK</Button>
+        </StackPanel>
+        <DataGrid Name="chartDataGrid"  CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserSortColumns="False" Grid.Column="1" SelectionUnit="Cell" Height="Auto" Grid.Row="1" Width="Auto" Margin="3" SelectionMode="Single" HeadersVisibility="None" SelectedCellsChanged="chartDataGrid_SelectedCellsChanged"/>
+        <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Name="addRowButton" Click="addRowButton_Click" Width="100" Height="23" Margin="3">Add Row</Button>
+                <Button Name="insertRowButton" Click="insertRowButton_Click" Width="100" Height="23" Margin="3">Insert Row</Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Name="clearRowButton" Click="clearRowButton_Click" Width="100" Height="23" Margin="3">Clear Row</Button>
+                <Button Name="removeRowButton" Click="removeRowButton_Click"  Width="100" Height="23" Margin="3">Remove Row</Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Name="addColumnButton" Click="addColumnButton_Click" Width="100" Height="23" Margin="3">Add Column</Button>
+                <Button Name="insertColumnButton" Click="insertColumnButton_Click" Width="100" Height="23" Margin="3">Insert Column</Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Name="clearColumnButton" Click="clearColumnButton_Click"  Width="100" Height="23" Margin="3">Clear Column</Button>
+                <Button Name="removeColumnButton" Click="removeColumnButton_Click"  Width="100" Height="23" Margin="3">Remove Column</Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="0" Grid.Column="3">
+            <StackPanel VerticalAlignment="Center" Orientation="Vertical" Width="100" >
+                <Label Name="seriesColorLabel">Series Color</Label>
+                <CustomControls:ColorPanelControl x:Name="seriesColorPanelControl" Margin="2" CanEditAlphaChannel="False" ColorChanged="seriesColorPanelControl_ColorChanged"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Vertical" Width="100">
+                <Label Name="markerColorLabel">Marker Color</Label>
+                <CustomControls:ColorPanelControl x:Name="markerColorPanelControl" Margin="2" CanEditAlphaChannel="False" ColorChanged="markerColorPanelControl_ColorChanged"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Row="1" Grid.Column="3">
+            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                <StackPanel VerticalAlignment="Center" Orientation="Vertical" Width="100" >
+                    <Label Name="seriesMarkerStyleLabel">Marker Type</Label>
+                    <ComboBox Name="seriesMarkerStyleComboBox" Margin="2" SelectionChanged="seriesMarkerStyleComboBox_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" Orientation="Vertical" Width="100">
+                    <Label Name="seriesMarkerSizeLabel">Marker Size</Label>
+                    <CustomControls:NumericUpDown Margin="2" Minimum="0" Maximum="255" x:Name="seriesMarkerSizeNumericUpDown" ValueChanged="seriesMarkerSizeNumericUpDown_ValueChanged"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                <StackPanel VerticalAlignment="Center" Orientation="Vertical" Width="100" >
+                    <Label Name="dataPointColorLabel">Data Point Color</Label>
+                    <CustomControls:ColorPanelControl x:Name="dataPointColorPanelControl" Margin="2" CanEditAlphaChannel="False" ColorChanged="dataPointColorPanelControl_ColorChanged"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

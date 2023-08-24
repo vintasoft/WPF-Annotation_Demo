@@ -1,0 +1,19 @@
+<ToolBar x:Class="WpfDemosCommonCode.Office.OfficeDocumentParagraphPropertiesVisualEditorToolBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfDemosCommonCode.Office"
+             xmlns:vsue="clr-namespace:Vintasoft.Imaging.Wpf.UI.UIElements;assembly=Vintasoft.Imaging.Wpf.UI"
+             mc:Ignorable="d">
+    <vsue:ToolBarButton x:Name="paragraphJLeftButton" ImageSource="Icons\ParagraphJustificationLeft.png" ToolTip="Justify by left border (Ctrl+L)" Click="paragraphJLeftButton_Click"/>
+    <vsue:ToolBarButton x:Name="paragraphJCenterButton" ImageSource="Icons\ParagraphJustificationCenter.png" ToolTip="Justify by center (Ctrl+E)" Click="paragraphJCenterButton_Click"/>
+    <vsue:ToolBarButton x:Name="paragraphJRightButton" ImageSource="Icons\ParagraphJustificationRight.png" ToolTip="Justify by right border (Ctrl+R)" Click="paragraphJRightButton_Click"/>
+    <vsue:ToolBarButton x:Name="paragraphJBothButton" ImageSource="Icons\ParagraphJustificationBoth.png" ToolTip="Justify by width (Ctrl+J)" Click="paragraphJBothButton_Click"/>
+    <vsue:ToolBarButton x:Name="decParagraphLeftIndentationButton" ImageSource="Icons\ParagraphDecreaseLeftIndentation.png" ToolTip="Decrease paragraph left indentation" Click="decParagraphLeftIndentationButton_Click"/>
+    <vsue:ToolBarButton x:Name="incParagraphLeftIndentationButton" ImageSource="Icons\ParagraphIncreaseLeftIndentation.png" ToolTip="Increase paragraph left indentation" Click="incParagraphLeftIndentationButton_Click"/>
+    <vsue:ToolBarButton x:Name="decParagraphFirstLineIndentationButton" ImageSource="Icons\ParagraphDecreaseFirstLineIndentation.png" ToolTip="Decrease paragraph first line indentation" Click="decParagraphFirstLineIndentationButton_Click"/>
+    <vsue:ToolBarButton x:Name="incParagraphFirstLineIndentationButton" ImageSource="Icons\ParagraphIncreaseFirstLineIndentation.png" ToolTip="Increase paragraph first line indentation" Click="incParagraphFirstLineIndentationButton_Click"/>
+    <vsue:ToolBarButton x:Name="paragraphNumberingButton" ImageSource="Icons\ParagraphNumbering.png" ToolTip="Paragraph numbering" Click="paragraphNumberingButton_Click"/>
+    <vsue:ToolBarButton x:Name="paragraphPropertiesButton" ImageSource="Icons\ParagraphProperties.png" ToolTip="Paragaraph Properties..." Click="paragraphPropertiesButton_Click"/>
+</ToolBar>

@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="WpfDemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Height="155" Width="320">
+    <GroupBox Header="Compression of image resource">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="161" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="22*" />
+                    <RowDefinition Height="22*" />
+                    <RowDefinition Height="22*" />
+                    <RowDefinition Height="22*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="101" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+
+                <RadioButton Name="compressionNoneRadioButton" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">None</RadioButton>
+                <RadioButton Name="compressionJpegRadioButton" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">JPEG</RadioButton>
+                <RadioButton Name="compressionJpegZipRadioButton" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">JPEG + ZIP</RadioButton>
+                <RadioButton Name="compressionJpeg2000RadioButton" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center">JPEG 2000</RadioButton>
+                <RadioButton Name="compressionCcittRadioButton" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center">CCITT Group 4</RadioButton>
+
+                <RadioButton Name="compressionAutoRadioButton" IsChecked="True" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center">Auto</RadioButton>
+                <RadioButton Name="compressionZipRadioButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">ZIP</RadioButton>
+                <RadioButton Name="compressionLzwRadioButton" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">LZW</RadioButton>
+                <RadioButton Name="compressionJbig2RadioButton" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center">JBIG 2</RadioButton>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="72*" />
+                    <RowDefinition Height="50*" />
+                </Grid.RowDefinitions>
+                <GroupBox Name="jpegCompressionSettingsGroupBox" Header="JPEG" Grid.Row="0" Visibility="Visible">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="0">Quality</Label>
+                        <CustomControls:NumericUpDown x:Name="jpegQualityNumericUpDown" Grid.Column="1" Grid.Row="0" Width="Auto"/>
+                        <CheckBox Name="jpegGrayscaleCheckBox" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" Margin="3,0">Grayscale</CheckBox>
+                    </Grid>                    
+                </GroupBox>
+                <GroupBox Name="jpeg2000CompressionSettingsGroupBox" Header="JPEG2000" Grid.Row="0" Visibility="Hidden">
+                    <Button Name="jpeg2000SettingsButton" Height="23" Margin="3" Click="jpeg2000SettingsButton_Click">Settings...</Button>
+                </GroupBox> 
+                <GroupBox Name="jbig2CompressionSettingsGroupBox" Header="JBIG2" Grid.Row="0" Visibility="Hidden">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*" />
+                            <RowDefinition Height="20*" />
+                        </Grid.RowDefinitions>
+                        
+                        <Button Name="jbig2SettingsButton" Grid.Row="0" Margin="3" Height="23" Click="jbig2SettingsButton_Click">Settings...</Button>
+                        <CheckBox Name="jbig2UseGlobalsCheckBox" IsChecked="True" Grid.Row="1" VerticalAlignment="Center" Margin="3">Use global dictionary</CheckBox>
+                    </Grid>
+                </GroupBox>
+                
+                <GroupBox Name="binarizationGroupBox"
+                          Header="Binarization" 
+                          Grid.RowSpan="2" 
+                          Visibility="Hidden"
+                          VerticalAlignment="Top"
+                          Height="80">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="29" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <ComboBox Name="binarizationModeComboBox" 
+                                  Grid.Row="0"
+                                  Grid.ColumnSpan="2" 
+                                  Height="23" 
+                                  Margin="3" />
+                        <Label Name="thresholdLabel"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top" 
+                               Grid.Row="1"
+                               Visibility="Hidden"
+                               Margin="3,0">
+                            Threshold
+                        </Label>
+                        <CustomControls:NumericUpDown 
+                            x:Name="thresholdNumericUpDown"
+                            Grid.Row="1" Grid.Column="1" 
+                            Visibility="Hidden"
+                            Width="Auto" 
+                            Minimum="0"
+                            Maximum="765"
+                            VerticalAlignment="Top"
+                            Margin="3,0" />
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Name="zipCompressionSettingsGroupBox" Header="ZIP" Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center">Level</Label>
+                        <CustomControls:NumericUpDown x:Name="zipLevelNumericUpDown" Grid.Column="1" Width="Auto"/>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Grid>
+    </GroupBox>
+</UserControl>

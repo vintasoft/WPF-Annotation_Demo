@@ -1,0 +1,10 @@
+﻿<ToolBar x:Class="WpfDemosCommonCode.Office.OfficeDocumentFontPropertiesVisualEditorToolBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfDemosCommonCode.Office"
+             mc:Ignorable="d">
+    <ComboBox Name="fontNameComboBox" Width="150" IsEditable="true"/>
+    <ComboBox Name="fontSizeComboBox" Width="75" IsEditable="true"/>
+</ToolBar>

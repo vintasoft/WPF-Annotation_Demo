@@ -1,0 +1,486 @@
+﻿<Window x:Class="WpfAnnotationDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
+    xmlns:vsai="clr-namespace:Vintasoft.Imaging.Annotation.Wpf.UI;assembly=Vintasoft.Imaging.Annotation.Wpf.UI"
+    xmlns:widcci="clr-namespace:WpfDemosCommonCode.Imaging"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    xmlns:cc="clr-namespace:WpfAnnotationDemo"
+    xmlns:cca="clr-namespace:WpfDemosCommonCode.Annotation"
+    Title="VintaSoft WPF Annotation Demo" Width="1100" Height="600"
+    Loaded="Window_Loaded"
+    Closed="Window_Closed"
+    Closing="Window_Closing" 
+    WindowStartupLocation="CenterScreen"
+    Icon="/WpfAnnotationDemo;component/App.ico">
+    <Window.Resources>
+        <Style TargetType="vsui:ThumbnailImageItem" x:Key="ThumbnailItemStyle">
+            <Setter Property="Border">
+                <Setter.Value>
+                    <Pen Brush="#60000000" Thickness="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ThumbnailPadding" Value="2.5" />
+            <Setter Property="ThumbnailImagePadding" Value="3" />
+            <Setter Property="ThumbnailForeground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="1">
+                        <GradientStop Color="#30000000" Offset="0.0" />
+                        <GradientStop Color="#D0000000" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ThumbnailBackground" Value="Transparent" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="SelectionBorder">
+                        <Setter.Value>
+                            <Pen Brush="#B08090FF" Thickness="2"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property = "IsSelected" Value="true">
+                    <Setter Property="ThumbnailBackground">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#207080F0" Offset="0.0" />
+                                <GradientStop Color="#B07080F0" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ThumbnailForeground" Value="Transparent"/>
+                    <Setter Property="Border">
+                        <Setter.Value>
+                            <Pen Brush="#D07080FF" Thickness="1"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property = "IsSelected" Value="false"/>
+                        <Condition Property = "HasThumbnailImage" Value="false"/>
+                        <Condition Property = "IsRendering" Value="false"/>
+                        <Condition Property = "IsRendered" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="ThumbnailForeground.Opacity" To="1" Duration="0:0:0" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </MultiTrigger.EnterActions>
+                </MultiTrigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property = "IsSelected" Value="false"/>
+                        <Condition Property = "HasThumbnailImage" Value="false"/>
+                        <Condition Property = "IsRendering" Value="true"/>
+                        <Condition Property = "IsRendered" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property = "ThumbnailBackground">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#10008000" Offset="0.0" />
+                                <GradientStop Color="#30008000" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <MultiTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="ThumbnailForeground.Opacity" From="1" To="0" Duration="0:0:0.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </MultiTrigger.EnterActions>
+                    <MultiTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="ThumbnailImageBrush.Opacity" From="0" To="1" Duration="0:0:0.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </MultiTrigger.ExitActions>
+                </MultiTrigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property = "IsSelected" Value="false"/>
+                        <Condition Property = "HasThumbnailImage" Value="true"/>
+                        <Condition Property = "IsRendering" Value="false"/>
+                        <Condition Property = "IsRendered" Value="true"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ThumbnailBackground">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#10008000" Offset="0.0" />
+                                <GradientStop Color="#30008000" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ThumbnailForeground" Value="Transparent"/>
+                </MultiTrigger>
+                <Trigger Property = "IsFocused" Value="true">
+                    <Setter Property="Border">
+                        <Setter.Value>
+                            <Pen Brush="Black" Thickness="1">
+                                <Pen.DashStyle>
+                                    <DashStyle Dashes="1,2"/>
+                                </Pen.DashStyle>
+                            </Pen>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <BitmapImage x:Key="RectangleIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Rectangle.png" />
+        <BitmapImage x:Key="EllipseIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/ellipse.png" />
+        <BitmapImage x:Key="HighlightIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/highlight.png" />
+        <BitmapImage x:Key="EmbeddedImageIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/embeddedImage.png" />
+        <BitmapImage x:Key="ReferencedImageIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/referencedImage.png" />
+        <BitmapImage x:Key="TextHighlightIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/TextHighlight.png" />
+        <BitmapImage x:Key="TextIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Text.png" />
+        <BitmapImage x:Key="StampIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/rubberstamp.png" />
+        <BitmapImage x:Key="LineIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Line.png" />
+        <BitmapImage x:Key="LinesIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Lines.png" />
+        <BitmapImage x:Key="FreehandLinesIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/FreehandLines.png" />
+        <BitmapImage x:Key="PolygonIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Polygon.png" />
+        <BitmapImage x:Key="RulerIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Ruler.png" />
+        <BitmapImage x:Key="TriangleIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Triangle.png" />
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding x:Name="openCommandBinding" Command="{x:Static cc:MainWindow._openCommand}" Executed="openImageMenuItem_Click" CanExecute="openCommandBinding_CanExecute" />
+        <CommandBinding x:Name="addCommandBinding" Command="{x:Static cc:MainWindow._addCommand}" Executed="addImagesMenuItem_Click" CanExecute="addCommandBinding_CanExecute" />
+        <CommandBinding x:Name="saveAsCommandBinding" Command="{x:Static cc:MainWindow._saveAsCommand}" Executed="saveAsMenuItem_Click"  CanExecute="saveAsCommandBinding_CanExecute"/>
+        <CommandBinding x:Name="closeCommandBinding" Command="{x:Static cc:MainWindow._closeCommand}" Executed="closeImagesMenuItem_Click" CanExecute="closeCommandBinding_CanExecute" />
+        <CommandBinding x:Name="printCommandBinding" Command="{x:Static cc:MainWindow._printCommand}" Executed="printMenuItem_Click" CanExecute="printCommandBinding_CanExecute" />
+        <CommandBinding x:Name="exitCommandBinding" Command="{x:Static cc:MainWindow._exitCommand}" Executed="exitMenuItem_Click" CanExecute="exitCommandBinding_CanExecute" />
+
+        <CommandBinding x:Name="undoCommandBinding" Command="{x:Static cc:MainWindow._undoCommand}" Executed="undoMenuItem_Click" CanExecute="undoCommandBinding_CanExecute" />
+        <CommandBinding x:Name="redoCommandBinding" Command="{x:Static cc:MainWindow._redoCommand}" Executed="redoMenuItem_Click" CanExecute="redoCommandBinding_CanExecute" />
+
+        <CommandBinding x:Name="cutCommandBinding" Command="{x:Static cc:MainWindow._cutCommand}" Executed="cutMenuItem_Click" CanExecute="cutCommandBinding_CanExecute" />
+        <CommandBinding x:Name="copyCommandBinding" Command="{x:Static cc:MainWindow._copyCommand}" Executed="copyMenuItem_Click" CanExecute="copyCommandBinding_CanExecute" />
+        <CommandBinding x:Name="pasteCommandBinding" Command="{x:Static cc:MainWindow._pasteCommand}" Executed="pasteMenuItem_Click" CanExecute="pasteCommandBinding_CanExecute" />
+        <CommandBinding x:Name="deleteCommandBinding" Command="{x:Static cc:MainWindow._deleteCommand}" Executed="deleteMenuItem_Click" CanExecute="deleteCommandBinding_CanExecute" />
+        <CommandBinding x:Name="deleteAllCommandBinding" Command="{x:Static cc:MainWindow._deleteAllCommand}" Executed="deleteAllMenuItem_Click" CanExecute="deleteAllCommandBinding_CanExecute" />
+        <CommandBinding x:Name="selectAllCommandBinding" Command="{x:Static cc:MainWindow._selectAllCommand}" Executed="selectAllAnnotations_Click" CanExecute="selectAllCommandBinding_CanExecute" />
+        <CommandBinding x:Name="groupCommandBinding" Command="{x:Static cc:MainWindow._groupCommand}" Executed="groupSelectedMenuItem_Click" CanExecute="groupCommandBinding_CanExecute" />
+        <CommandBinding x:Name="groupAllCommandBinding" Command="{x:Static cc:MainWindow._groupAllCommand}" Executed="groupAllMenuItem_Click" CanExecute="groupAllCommandBinding_CanExecute" />
+
+        <CommandBinding x:Name="rotateClockwiseCommandBinding" Command="{x:Static cc:MainWindow._rotateClockwiseCommand}" Executed="rotateClockwiseMenuItem_Click" CanExecute="rotateClockwiseCommandBinding_CanExecute" />
+        <CommandBinding x:Name="rotateCounterclockwiseCommandBinding" Command="{x:Static cc:MainWindow._rotateCounterclockwiseCommand}" Executed="rotateCounterclockwiseMenuItem_Click" CanExecute="rotateCounterclockwiseCommandBinding_CanExecute" />
+        
+        <CommandBinding Command="{x:Static cc:MainWindow._aboutCommand}" Executed="aboutMenuItem_Click" />
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{x:Static cc:MainWindow._openCommand}" Modifiers="CTRL" Key="O" />
+        <KeyBinding Command="{x:Static cc:MainWindow._addCommand}" Modifiers="CTRL+SHIFT" Key="O" />
+        <KeyBinding Command="{x:Static cc:MainWindow._saveAsCommand}" Modifiers="CTRL" Key="S" />
+        <KeyBinding Command="{x:Static cc:MainWindow._closeCommand}" Modifiers="CTRL" Key="W" />
+        <KeyBinding Command="{x:Static cc:MainWindow._printCommand}" Modifiers="CTRL" Key="P" />
+        <KeyBinding Command="{x:Static cc:MainWindow._exitCommand}" Modifiers="ALT" Key="X" />
+
+        <KeyBinding Command="{x:Static cc:MainWindow._undoCommand}" Modifiers="CTRL" Key="Z" />
+        <KeyBinding Command="{x:Static cc:MainWindow._redoCommand}" Modifiers="CTRL" Key="Y" />
+
+        <KeyBinding Command="{x:Static cc:MainWindow._cutCommand}" Modifiers="CTRL" Key="X" />
+        <KeyBinding Command="{x:Static cc:MainWindow._copyCommand}" Modifiers="CTRL" Key="C" />
+        <KeyBinding Command="{x:Static cc:MainWindow._pasteCommand}" Modifiers="CTRL" Key="V" />
+        <KeyBinding Command="{x:Static cc:MainWindow._deleteCommand}" Key="DEL" />
+        <KeyBinding Command="{x:Static cc:MainWindow._deleteAllCommand}" Modifiers="ALT" Key="DEL" />
+        <KeyBinding Command="{x:Static cc:MainWindow._selectAllCommand}" Modifiers="CTRL" Key="A" />
+        <KeyBinding Command="{x:Static cc:MainWindow._groupCommand}" Modifiers="ALT" Key="G" />
+        <KeyBinding Command="{x:Static cc:MainWindow._groupAllCommand}" Modifiers="CTRL+SHIFT" Key="G" />
+
+        <KeyBinding Command="{x:Static cc:MainWindow._rotateClockwiseCommand}" Modifiers="CTRL+SHIFT" Key="OemPlus" />
+        <KeyBinding Command="{x:Static cc:MainWindow._rotateCounterclockwiseCommand}" Modifiers="CTRL+SHIFT" Key="OemMinus" />
+        <KeyBinding Command="{x:Static cc:MainWindow._rotateClockwiseCommand}" Modifiers="CTRL+SHIFT" Key="Add" />
+        <KeyBinding Command="{x:Static cc:MainWindow._rotateCounterclockwiseCommand}" Modifiers="CTRL+SHIFT" Key="Subtract" />
+
+        <KeyBinding Command="{x:Static cc:MainWindow._aboutCommand}"  Key="F1" />
+    </Window.InputBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="25" />
+            <RowDefinition />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Height="25" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Menu Name="menu1">
+                <MenuItem Header="File" Name="fileMenuItem">
+                    <MenuItem Header="Open... (Ctrl+ O)" Name="openImageMenuItem" Click="openImageMenuItem_Click"/>
+                    <MenuItem Header="Add... (Ctrl+ Shit+ O)" Name="addImagesMenuItem" Click="addImagesMenuItem_Click"/>
+                    <MenuItem Header="Save" Name="saveCurrentFileMenuItem" Click="saveCurrentFileMenuItem_Click"/>
+                    <MenuItem Header="Save As... (Ctrl+ S)" Name="saveAsMenuItem" Click="saveAsMenuItem_Click"/>
+                    <MenuItem Header="Save To..." Name="saveToMenuItem" Click="saveToMenuItem_Click"/>
+                    <MenuItem Header="Close (Ctrl+ W)" Name="closeMenuItem" Click="closeImagesMenuItem_Click"/>
+                    <Separator />
+                    <MenuItem Header="Print... (Ctrl+ P)" Name="printMenuItem" Click="printMenuItem_Click" />
+                    <Separator />
+                    <MenuItem Header="Exit (Alt+ X)" Name="exitMenuItem" Click="exitMenuItem_Click" />
+                </MenuItem>
+                <MenuItem Header="Edit" Name="editMenuItem">
+                    <MenuItem Header="Enable Undo/Redo" Name="enableUndoRedoMenuItem" IsCheckable="True" Click="enableUndoRedoMenuItem_Click"/>
+                    <MenuItem Header="Undo" HeaderStringFormat="{}{0} (Ctrl+ Z)" Name="undoMenuItem" Click="undoMenuItem_Click"/>
+                    <MenuItem Header="Redo" HeaderStringFormat="{}{0} (Ctrl+ Y)" Name="redoMenuItem" Click="redoMenuItem_Click"/>
+                    <MenuItem Header="Undo/Redo Settings..." Name="undoRedoSettingsMenuItem" Click="undoRedoSettingsMenuItem_Click" />
+                    <MenuItem Header="Show History for Displayed Images" Name="showHistoryForDisplayedImagesMenuItem" IsChecked="True" Click="showHistoryForDisplayedImagesMenuItem_Click" />
+                    <MenuItem Header="History Dialog..." Name="historyDialogMenuItem" Click="historyDialogMenuItem_Click" />
+                </MenuItem>
+                <MenuItem Header="View" Name="viewMenuItem">
+                    <MenuItem Header="Visual Tools" Name="visualToolsMenuItem" />
+                    <Separator/>
+                    <MenuItem Header="Thumbnail Viewer Settings..." Name="thumbnailViewerSettingsMenuItem" Click="thumbnailViewerSettingsMenuItem_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Image Display Mode">
+                        <MenuItem Header="Single Page" Name="singlePageMenuItem" Click="ImageDisplayMode_Click"/>
+                        <MenuItem Header="Two Columns" Name="twoColumnsMenuItem" Click="ImageDisplayMode_Click"/>
+                        <MenuItem Header="Single Continuous Row" Name="singleContinuousRowMenuItem" Click="ImageDisplayMode_Click"/>
+                        <MenuItem Header="Single Continuous Column" Name="singleContinuousColumnMenuItem" Click="ImageDisplayMode_Click"/>
+                        <MenuItem Header="Two Continuous Rows" Name="twoContinuousRowsMenuItem" Click="ImageDisplayMode_Click"/>
+                        <MenuItem Header="Two Continuous Columns" Name="twoContinuousColumnsMenuItem" Click="ImageDisplayMode_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Image Scale Mode" Name="scaleModeMenuItem">
+                        <MenuItem Header="Normal" Name="normalMenuItem" Click="imageSizeMode_Click"/>
+                        <MenuItem Header="Best fit" Name="bestFitMenuItem" Click="imageSizeMode_Click" IsChecked="True"/>
+                        <MenuItem Header="Fit to width" Name="fitToWidthMenuItem" Click="imageSizeMode_Click"/>
+                        <MenuItem Header="Fit to height" Name="fitToHeightMenuItem" Click="imageSizeMode_Click"/>
+                        <MenuItem Header="Pixel to Pixel" Name="pixelToPixelMenuItem" Click="imageSizeMode_Click"/>
+                        <MenuItem Header="Scale" Name="scaleMenuItem" Click="imageSizeMode_Click"/>
+                        <Separator />
+                        <MenuItem Header="25%" Name="scale25MenuItem" Click="imageSizeMode_Click"/>
+                        <MenuItem Header="50%" Name="scale50MenuItem" Click="imageSizeMode_Click"/>
+                        <MenuItem Header="100%" Name="scale100MenuItem" Click="imageSizeMode_Click"/>
+                        <MenuItem Header="200%" Name="scale200MenuItem" Click="imageSizeMode_Click"/>
+                        <MenuItem Header="400%" Name="scale400MenuItem" Click="imageSizeMode_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Rotate View" Name="rotateViewModeMenuItem">
+                        <MenuItem Header="Clockwise (Shift+Ctrl+Plus)" Name="rotateClockwiseMenuItem" Click="rotateClockwiseMenuItem_Click"/>
+                        <MenuItem Header="Counterclockwise (Shift+Ctrl+Minus)" Name="rotateCounterclockwiseMenuItem" Click="rotateCounterclockwiseMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Annotation Viewer Settings..." Name="annotationViewerSettingsMenuItem" Click="annotationViewerSettingsMenuItem_Click"/>
+                    <MenuItem Header="Interaction Points Settings..." Name="annotationInteractionPointsSettingsMenuItem" Click="annotationInteractionPointsSettingsMenuItem_Click"/>
+                    <MenuItem Header="Scroll Viewer When Annotation is Moved" Name="scrollViewerWhenAnnotationIsMovedMenuItem" IsCheckable="True" IsChecked="True" />
+                    <MenuItem Header="Move Annotations Within The Viewer Bounds" Name="boundAnnotationsToolStripMenuItem" IsCheckable="True" Click="boundAnnotationsToolStripMenuItem_Click" />
+                    <MenuItem Header="Move Annotations Between Images (Multipage Display)" Name="moveAnnotationsBetweenImagesMenuItem" IsCheckable="True" Checked="moveAnnotationsBetweenImagesMenuItem_CheckedChanged" Unchecked="moveAnnotationsBetweenImagesMenuItem_CheckedChanged" />
+                    <Separator />
+                    <MenuItem Header="Show Events Log" Name="showEventsLogMenuItem" IsCheckable="True" Click="showEventsLogMenuItem_Click"/>
+                    <Separator />
+                    <MenuItem Header="Enable Spell Checking" Name="enableSpellCheckingMenuItem" IsCheckable="True" IsChecked="True" Checked="enableSpellCheckingMenuItem_CheckChanged" Unchecked="enableSpellCheckingMenuItem_CheckChanged" />
+                    <Separator />
+                    <MenuItem Header="Color Management..." Name="colorManagementMenuItem" Click="colorManagementMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Annotations" Name="annotationsMenuItem" SubmenuOpened="annotationsMenuItem_SubmenuOpened" SubmenuClosed="annotationsMenuItem_SubmenuClosed">
+                    <MenuItem Header="Info..." Name="annotationsInfoMenuItem" Click="annotationsInfoMenuItem_Click" />
+                    <Separator />
+                    <MenuItem Header="Interaction Mode" Name="interactionModeMenuItem" >
+                        <MenuItem Header="None" Name="annotationInteractionModeNoneMenuItem" Click="annotationInteractionModeNoneMenuItem_Click"/>
+                        <MenuItem Header="View" Name="annotationInteractionModeViewMenuItem" Click="annotationInteractionModeViewMenuItem_Click" />
+                        <MenuItem Header="Author" Name="annotationInteractionModeAuthorMenuItem" IsChecked="True" Click="annotationInteractionModeAuthorMenuItem_Click" />
+                    </MenuItem>
+                    <MenuItem Header="Transformation Mode" Name="transformationModeMenuItem" >
+                        <MenuItem Header="Rectangular" Name="transformationModeRectangularMenuItem" Click="transformationModeRectangularMenuItem_Click"/>
+                        <MenuItem Header="Points" Name="transformationModePointsMenuItem" Click="transformationModePointsMenuItem_Click"/>
+                        <MenuItem Header="Rectangular and Points" Name="transformationModeRectangularAndPointsMenuItem" Click="transformationModeRectangularAndPointsMenuItem_Click"/>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="Load from file..." Name="loadFromFileMenuItem" Click="loadFromFileMenuItem_Click" />
+                    <MenuItem Header="Save to file..." Name="saveToFileMenuItem" Click="saveToFileMenuItem_Click" />
+                    <Separator />
+                    <MenuItem Header="Add" Name="addAnnotationMenuItem">
+                        <MenuItem Header="Rectangle" Name="rectangleMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Ellipse" Name="ellipseMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Highlight" Name="highlightMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Text highlight" Name="textHighlightMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Embedded image" Name="embeddedImageMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Referenced image" Name="referencedImageMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Text" Name="textMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Sticky note" Name="stickyNoteMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Free text" Name="freeTextMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Rubber stamp" Name="rubberStampMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Link" Name="linkMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Line" Name="lineMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Lines" Name="linesMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Lines with interpolation" Name="linesWithInterpolationMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Freehand lines" Name="freehandLinesMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Polygon" Name="polygonMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Polygon with interpolation" Name="polygonWithInterpolationMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Freehand polygon" Name="freehandPolygonMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Ruler" Name="rulerMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Rulers" Name="rulersMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Angle" Name="angleMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <Separator />
+                        <MenuItem Header="Triangle - Custom Annotation" Name="triangleCustomAnnotationMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Mark - Custom Annotation" Name="markCustomAnnotationMenuItem" Click="addAnnotationMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Build Annotations Continuously" Name="buildAnnotationsContinuouslyMenuItem" Click="buildAnnotationsContinuouslyMenuItem_Click" />
+                    <Separator />
+                    <MenuItem Header="Cut" HeaderStringFormat="{}{0} (Ctrl+ X)" Name="cutMenuItem" Click="cutMenuItem_Click" />
+                    <MenuItem Header="Copy" HeaderStringFormat="{}{0} (Ctrl+ C)" Name="copyMenuItem" Click="copyMenuItem_Click" />
+                    <MenuItem Header="Paste" HeaderStringFormat="{}{0} (Ctrl+ V)" Name="pasteMenuItem" Click="pasteMenuItem_Click" />
+                    <MenuItem Header="Delete" HeaderStringFormat="{}{0} (Del)" Name="deleteMenuItem" Click="deleteMenuItem_Click" />
+                    <MenuItem Header="Delete All" HeaderStringFormat="{}{0} (Alt+ Del)" Name="deleteAllMenuItem" Click="deleteAllMenuItem_Click" />
+                    <Separator />
+                    <MenuItem Header="Bring to back" Name="bringToBackMenuItem1" Click="bringToBackMenuItem_Click" />
+                    <MenuItem Header="Bring to front" Name="bringToFrontMenuItem1" Click="bringToFrontMenuItem_Click" />
+                    <Separator />
+                    <MenuItem Header="Multi Select" Name="multiSelectMenuItem" IsCheckable="True" IsChecked="True" Click="multiSelectMenuItem_Click" />
+                    <MenuItem Header="Select All" HeaderStringFormat="{}{0} (Ctrl+ A)" Name="selectAllMenuItem" Click="selectAllAnnotations_Click"/>
+                    <MenuItem Header="Deselect All" HeaderStringFormat="{}{0}" Name="deselectAllMenuItem" Click="deselectAllAnnotations_Click"/>
+                    <Separator />
+                    <MenuItem Header="Group/Ungroup Selected (Alt+ G)" Name="groupSelectedMenuItem" Click="groupSelectedMenuItem_Click" />
+                    <MenuItem Header="Group All (Ctrl+ Shift+ G)" Name="groupAllMenuItem" Click="groupAllMenuItem_Click" />
+                    <Separator />
+                    <MenuItem Header="Rotate Image with Annotations..." Name="rotateImageWithAnnotationsMenuItem" Click="rotateImageWithAnnotationsMenuItem_Click" />
+                    <MenuItem Header="Burn Annotations on Image" Name="burnAnnotationsOnImageMenuItem" Click="burnAnnotationsOnImageMenuItem_Click" />
+                    <MenuItem Header="Clone Image with Annotations" Name="cloneImageWithAnnotationsMenuItem" Click="cloneImageWithAnnotationsMenuItem_Click" />
+                </MenuItem>
+                <MenuItem Header="Help" Name="helpMenuItem">
+                    <MenuItem Header="About..." Name="aboutMenuItem" Click="aboutMenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <DockPanel VerticalAlignment="Top"  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock Text="Zoom" Margin="5,1,5,5"/>
+            <Slider Name="zoomSlider" Minimum="1" Maximum="1000" Value="100"/>
+        </DockPanel>
+
+        <DockPanel VerticalAlignment="Stretch" Grid.Row="4" Grid.Column="0" Name="panel5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <vsai:WpfAnnotatedThumbnailViewer 
+                        Background="#FFEEEEEE" 
+                        ThumbnailContainerStyle="{StaticResource ThumbnailItemStyle}" 
+                        Grid.Column ="0" 
+                        Name="thumbnailViewer" 
+                        GenerateOnlyVisibleThumbnails="True" 
+                        ThumbnailFlowStyle="WrappedRows"
+                        ThumbnailRenderingThreadCount="2"
+                        ThumbnailsLoadingProgress="thumbnailViewer_ThumbnailLoadingProgress" 
+                        SelectedThumbnailsChanged="thumbnailViewer_SelectedThumbnailsChanged"
+                        ThumbnailAdded="thumbnailViewer_ThumbnailAdded"
+                        Margin="0,0,5,0" IsDeferredScrollingEnabled="False">
+                </vsai:WpfAnnotatedThumbnailViewer>
+                <GridSplitter Grid.Column ="0" Background="LightBlue" Width="5" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
+                <Grid Grid.Column ="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Name="annotationDatPropertyGridRow" Width="250"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TabControl Grid.Column="1">
+                        <TabItem Header="Properties">
+                            <Grid Name="annotationDataPropertyGridPanel">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <ComboBox Margin="3" x:Name="annotationComboBox" DropDownOpened="annotationComboBox_DropDownOpened" SelectionChanged="annotationComboBox_SelectedIndexChanged" />
+                                <WindowsFormsHost Margin="3" Grid.Row="1" x:Name="annotationDataPropertyGridWindowsFormsHost">
+                                    <wf:PropertyGrid x:Name="annotationDataPropertyGrid"/>
+                                </WindowsFormsHost>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Comments">
+                            <cca:AnnotationCommentsControl x:Name="annotationCommentsControl1" />
+                        </TabItem>
+                    </TabControl>
+                    
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Name="annotationEventsLogRow" Height="0"/>
+                        </Grid.RowDefinitions>
+                        <vsai:WpfAnnotationViewer Grid.Row ="0" x:Name="annotationViewer1" 
+                                          Background="#FFEEEEEE" 
+                                          Width="Auto" Height="Auto" SizeMode="BestFit" 
+                                          ZoomChanged="annotationViewer1_ZoomChanged" 
+                                          ImageLoadingProgress="annotationViewer1_ImageLoadingProgress"
+                                          ImageLoading="annotationViewer1_ImageLoading"
+                                          ImageLoaded="annotationViewer1_ImageLoaded"
+                                          AnnotationInteractionModeChanged="annotationViewer1_AnnotationInteractionModeChanged"
+                                          AnnotationTransformingStarted="annotationViewer1_AnnotationTransformingStarted"
+                                          AnnotationTransformingFinished="annotationViewer1_AnnotationTransformingFinished"
+                                          FocusedAnnotationViewChanged="annotationViewer1_FocusedAnnotationViewChanged"
+                                          InputGestureCopy="{x:Null}"
+                                          InputGestureCut="{x:Null}"
+                                          InputGestureInsert="{x:Null}"
+                                          InputGestureDelete="{x:Null}"
+                                          PreviewKeyDown="annotationViewer1_PreviewKeyDown"
+                                          RendererCacheSize="256"
+                                          IsKeyboardNavigationEnabled="True"        
+                                          DisplayMode="SingleContinuousColumn">
+                            <vsai:WpfAnnotationViewer.ContextMenu>
+                                <ContextMenu Name="annotationViewerMenu" Opened="annotationViewerMenu_Opened">
+                                    <MenuItem Name="pasteAnnotationMenuItem1" Header="Paste annotation" Click="pasteAnnotationInMousePositionMenuItem_Click" />
+                                    <Separator />
+                                    <MenuItem Name="saveImageWithAnnotationsMenuItem" Header="Save image with annotations..." Click="saveImageWithAnnotationsMenuItem_Click"/>
+                                    <MenuItem Name="burnAnnotationsMenuItem" Header="Burn annotations on image" Click="burnAnnotationsOnImageMenuItem_Click"/>
+                                    <MenuItem Name="copyImageToClipboardMenuItem" Header="Copy image to clipboard" Click="copyImageToClipboardMenuItem_Click"/>
+                                    <MenuItem Name="deleteImageMenuItem" Header="Delete image" Click="deleteImageMenuItem_Click"/>
+                                </ContextMenu>
+                            </vsai:WpfAnnotationViewer.ContextMenu>
+                            <vsai:WpfAnnotationViewer.AnnotationAuthorContextMenu>
+                                <ContextMenu Name="annotationMenu" Opened="annotationMenu_Opened">
+                                    <MenuItem Name="cutAnnotationMenuItem" Header="Cut annotation" Click="cutMenuItem_Click"/>
+                                    <MenuItem Name="copyAnnotationMenuItem" Header="Copy annotation" Click="copyMenuItem_Click" />
+                                    <MenuItem Name="pasteAnnotationMenuItem" Header="Paste annotation" Click="pasteAnnotationInMousePositionMenuItem_Click" />
+                                    <MenuItem Name="deleteAnnotationMenuItem" Header="Delete annotation" Click="deleteMenuItem_Click" />
+                                    <Separator />
+                                    <MenuItem Name="bringToBackMenuItem" Header="Bring to back" Click="bringToBackMenuItem_Click"/>
+                                    <MenuItem Name="bringToFrontMenuItem" Header="Bring to front" Click="bringToFrontMenuItem_Click"/>
+                                </ContextMenu>
+                            </vsai:WpfAnnotationViewer.AnnotationAuthorContextMenu>
+                        </vsai:WpfAnnotationViewer>
+                        <GridSplitter Visibility="Collapsed" Name="annotationEventsLogGridSplitter" Grid.Row="0" Background="LightBlue" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                        <TextBox Name="annotationEventsLog" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" TextChanged="annotationEventsLog_TextChanged"></TextBox>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </DockPanel>
+
+        <DockPanel VerticalAlignment="Top" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+            <DockPanel>
+                <Label Name="actionLabel" Visibility="Collapsed">StatusLabel</Label>
+                <ProgressBar Name="thumbnailLoadingProgerssBar" Minimum="0" Maximum="100" Width="100" Margin="4" Visibility="Collapsed"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Name="statusLabelLoadingImage" Visibility="Hidden">Loading image:</Label>
+                <ProgressBar Name="imageLoadingProgerssBar" Minimum="0" Maximum="100" Width="100" Margin="4" Visibility="Hidden"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Name="imageInfoStatusLabel" HorizontalAlignment="Right" Margin="2"/>
+            </DockPanel>
+        </DockPanel>
+
+        <ToolBarTray Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Orientation="Horizontal" IsLocked="True">
+            <widcci:ImageViewerToolBar Band="0" x:Name="MainToolbar" OpenFile="MainToolbar_OpenFile" SaveFile="MainToolbar_SaveFile" Print="MainToolbar_Print" Width="Auto" MinWidth="0" Background="Transparent" CanNavigate="True" />
+            <widcci:VisualToolsToolBar Band="0" x:Name="visualToolsToolBar" />
+
+            <cca:AnnotationsToolBar Band="1" x:Name="annotationToolBar" />
+
+            <ToolBar Band="1" Grid.Row="2" Name="selectionModeToolBar" HorizontalAlignment="Left" Width="Auto">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left">Interaction Mode</Label>
+                <ComboBox Name="annotationInteractionModeToolStripComboBox" SelectedIndex="2" SelectionChanged="annotationInteractionModeToolStripComboBox_SelectionChanged" VerticalAlignment="Center" HorizontalAlignment="Right" Width="121">
+                    <ComboBoxItem>None</ComboBoxItem>
+                    <ComboBoxItem>View</ComboBoxItem>
+                    <ComboBoxItem>Author</ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
+    </Grid>
+</Window>

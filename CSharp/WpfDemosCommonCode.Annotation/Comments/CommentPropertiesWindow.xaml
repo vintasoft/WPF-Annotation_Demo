@@ -1,0 +1,64 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:an="clr-namespace:WpfDemosCommonCode.Annotation"
+        xmlns:local="clr-namespace:WpfDemosCommonCode.Annotation"
+        xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls" x:Class="WpfDemosCommonCode.Annotation.CommentPropertiesWindow"
+        mc:Ignorable="d"
+        Title="Comment Properties" Height="389" Width="500" MinWidth="500" MinHeight="389">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="315*"/>
+            <RowDefinition Height="43"/>
+        </Grid.RowDefinitions>
+        <TabControl x:Name="tabControl" SelectionChanged="tabControl_SelectionChanged" Margin="0,0,0,1">
+            <TabItem x:Name="tabPageCommon" Header="Common">
+                <Grid Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="29"/>
+                        <RowDefinition Height="29"/>
+                        <RowDefinition Height="29"/>
+                        <RowDefinition Height="29"/>
+                        <RowDefinition Height="70*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="133*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="isLockedCheckBox" Content="Locked" Margin="6,5,0,5" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Width="71" Checked="isLockedCheckBox_Checked" Unchecked="isLockedCheckBox_Checked"/>
+                    <CheckBox x:Name="isOpenCheckBox" Content="Open" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Checked="isOpenCheckBox_Checked" Unchecked="isOpenCheckBox_Checked"/>
+                    <Label Content="Modify Date:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.35" Width="87"/>
+                    <Label Content="Creation Date:" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="87"/>
+                    <Label Content="Type:" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="34" Width="87"/>
+                    <Label Content="Color:" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Height="34" Width="87"/>
+                    <Label Content="UserName:" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Height="33" Width="87"/>
+                    <Label Content="Subject:" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Height="34" Width="87"/>
+                    <Label Content="Text:" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Width="87"/>
+                    <TextBox x:Name="modifyDateTimeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="5,4,0,0" Grid.Row="1" TextWrapping="Wrap" Text="&lt;ModifyDate&gt;" VerticalAlignment="Top" Width="384" BorderThickness="0" IsReadOnly="True"/>
+                    <TextBox x:Name="creationDateTimeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="5,4,0,0" Grid.Row="2" TextWrapping="Wrap" Text="&lt;CreationDate&gt;" VerticalAlignment="Top" Width="384" BorderThickness="0" IsReadOnly="True"/>
+                    <ComboBox x:Name="typeComboBox" Grid.Column="1" Margin="5,5,10,0" Grid.Row="3" VerticalAlignment="Top" SelectionChanged="typeComboBox_SelectionChanged" TextBoxBase.TextChanged="TypeComboBox_TextChanged"/>
+                    <CustomControls:ColorPanelControl x:Name="colorPanelControl" Grid.Column="1" Height="20" Margin="5,6,10,0" Grid.Row="4" VerticalAlignment="Top" ColorChanged="colorPanelControl_ColorChanged" CanEditAlphaChannel="False"/>
+                    <TextBox x:Name="userNameTextBox" Grid.Column="1" Height="23" Margin="5,4,10,0" Grid.Row="5" TextWrapping="Wrap" Text="&lt;UserName&gt;" VerticalAlignment="Top" TextChanged="userNameTextBox_TextChanged"/>
+                    <TextBox x:Name="subjectTextBox" Grid.Column="1" Height="23" Margin="5,4,10,0" Grid.Row="6" TextWrapping="Wrap" Text="&lt;Subject&gt;" VerticalAlignment="Top" TextChanged="subjectTextBox_TextChanged"/>
+                    <TextBox x:Name="textBox" Grid.Column="1" Margin="5,4,10,10" Grid.Row="7" TextWrapping="Wrap" Text="&lt;Text&gt;" VerticalScrollBarVisibility="Visible" TextChanged="textBox_TextChanged"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabPageStateHistory" Header="State History">
+                <an:CommentStateHistoryControl x:Name="commentStateHistoryControl"/>
+            </TabItem>
+            <TabItem x:Name="tabPageAdvanced" Header="Advanced">
+                <WindowsFormsHost Margin="3" x:Name="commentDataPropertyGridWindowsFormsHost">
+                    <wf:PropertyGrid x:Name="commentDataPropertyGrid"/>
+                </WindowsFormsHost>
+            </TabItem>
+        </TabControl>
+        <Button Content="OK" Margin="0,0,10,10" Click="OkButton_Click" Grid.Row="1" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Window>

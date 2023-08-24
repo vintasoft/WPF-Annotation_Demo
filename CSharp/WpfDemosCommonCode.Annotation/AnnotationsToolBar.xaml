@@ -1,0 +1,53 @@
+﻿<ToolBar x:Class="WpfDemosCommonCode.Annotation.AnnotationsToolBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="31"
+    Width="Auto" SnapsToDevicePixels="True">
+
+    <ToolBar.Resources>
+        <BitmapImage x:Key="Rectangle" UriSource="Icons/Rectangle.png" />
+        <BitmapImage x:Key="Ellipse" UriSource="Icons/ellipse.png" />
+        <BitmapImage x:Key="Highlight" UriSource="Icons/highlight.png" />
+        <BitmapImage x:Key="Embedded image" UriSource="Icons/embeddedImage.png" />
+        <BitmapImage x:Key="Referenced Image" UriSource="Icons/referencedImage.png" />
+        <BitmapImage x:Key="Text highlight" UriSource="Icons/TextHighlight.png" />
+        <BitmapImage x:Key="Text" UriSource="Icons/Text.png" />
+        <BitmapImage x:Key="Rubber stamp" UriSource="Icons/rubberstamp.png" />
+        <BitmapImage x:Key="Line" UriSource="Icons/Line.png" />
+        <BitmapImage x:Key="Lines" UriSource="Icons/Lines.png" />
+        <BitmapImage x:Key="Freehand lines" UriSource="Icons/FreehandLines.png" />
+        <BitmapImage x:Key="Polygon" UriSource="Icons/Polygon.png" />
+        <BitmapImage x:Key="Ruler" UriSource="Icons/Ruler.png" />
+        <BitmapImage x:Key="Rulers" UriSource="Icons/Rulers.png" />
+        <BitmapImage x:Key="Referenced image" UriSource="Icons/referencedImage.png" />
+        <BitmapImage x:Key="Sticky note" UriSource="Icons/StickyNote.png" />
+        <BitmapImage x:Key="Free text" UriSource="Icons/FreeText.png" />
+        <BitmapImage x:Key="Link" UriSource="Icons/Link.png" />
+        <BitmapImage x:Key="Arrow" UriSource="Icons/Arrow.png" />
+        <BitmapImage x:Key="Double arrow" UriSource="Icons/DoubleArrow.png" />
+        <BitmapImage x:Key="Lines with interpolation" UriSource="Icons/FreehandLines.png" />
+        <BitmapImage x:Key="Polygon with interpolation" UriSource="Icons/FreehandPolygon.png" />
+        <BitmapImage x:Key="Freehand polygon" UriSource="Icons/FreehandPolygon.png" />
+        <BitmapImage x:Key="Angle" UriSource="Icons/Angle.png" />
+        <BitmapImage x:Key="Triangle - Custom Annotation" UriSource="Icons/Triangle.png" />
+        <BitmapImage x:Key="Mark - Custom Annotation" UriSource="Icons/Mark.png" />
+        <BitmapImage x:Key="Cloud Ellipse" UriSource="Icons/CloudEllipse.png" />
+        <BitmapImage x:Key="Cloud Free text" UriSource="Icons/CloudFreeText.png" />
+        <BitmapImage x:Key="Cloud Highlight" UriSource="Icons/CloudHighlight.png" />
+        <BitmapImage x:Key="Cloud Lines" UriSource="Icons/CloudLines.png" />
+        <BitmapImage x:Key="Cloud Lines with interpolation" UriSource="Icons/CloudLinesWithInterpolation.png" />
+        <BitmapImage x:Key="Cloud Polygon" UriSource="Icons/CloudPolygon.png" />
+        <BitmapImage x:Key="Cloud Polygon with interpolation" UriSource="Icons/CloudPolygonWithInterpolation.png" />
+        <BitmapImage x:Key="Cloud Rectangle" UriSource="Icons/CloudRectangle.png" />
+        <BitmapImage x:Key="Cloud Text" UriSource="Icons/CloudText.png" />
+        <BitmapImage x:Key="Cloud Triangle - Custom Annotation" UriSource="Icons/CloudTriangle.png" />
+        <BitmapImage x:Key="Freehand Highlight" UriSource="Icons/FreehandHighlight.png" />
+        <BitmapImage x:Key="Freehand Polygon Highlight" UriSource="Icons/FreehandPolygonHighlight.png" />
+        <BitmapImage x:Key="Polygon Highlight" UriSource="Icons/PolygonHighlight.png" />
+        <BitmapImage x:Key="Triangle Lines" UriSource="Icons/TriangleLines.png" />
+        <BitmapImage x:Key="Triangle Polygon" UriSource="Icons/TrianglePolygon.png" />
+        <BitmapImage x:Key="Arc" UriSource="Icons/Arc.png" />
+        <BitmapImage x:Key="Arc with arrow" UriSource="Icons/ArcWithArrow.png" />
+        <BitmapImage x:Key="Arc with double arrow" UriSource="Icons/ArcWithDoubleArrow.png" />
+    </ToolBar.Resources>
+</ToolBar>

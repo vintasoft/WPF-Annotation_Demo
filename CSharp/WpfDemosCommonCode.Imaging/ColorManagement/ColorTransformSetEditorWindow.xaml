@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfDemosCommonCode.Imaging.ColorTransformSetEditorWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Color Transform Set" Width="600" Height="322" MinWidth="500" MinHeight="250" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="75" />
+            <Setter Property="Height" Value="23" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="346*" />
+            <ColumnDefinition Width="232*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0" Grid.Column="0" Header="Current color transforms (transform set)">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="29" />
+                </Grid.RowDefinitions>
+                <ListBox Name="colorTransformsListBox" Grid.Row="0" />
+                <Button Name="deleteButton" Grid.Row="1" HorizontalAlignment="Left" Margin="3" Width="117" Click="deleteButton_Click">Delete selected</Button>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="0" Grid.Column="1" Header="Standard available color transforms">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="29" />
+                </Grid.RowDefinitions>
+                <ListBox Name="availableColorTransformsListBox" Grid.Row="0" />
+                <Button Name="copyToTransformSetButton" Grid.Row="1" Margin="3" Width="176" HorizontalAlignment="Center" Click="copyToTransformSetButton_Click">Copy selected to transform set</Button>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+            <Button Name="buttonOk"  HorizontalAlignment="Left" Click="buttonOk_Click" Width="75">OK</Button>
+            <Button Name="buttonCancel" HorizontalAlignment="Right" Margin="5,0" Click="buttonCancel_Click">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

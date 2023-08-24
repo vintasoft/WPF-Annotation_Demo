@@ -1,0 +1,99 @@
+﻿<Window x:Class="WpfDemosCommonCode.Office.OpenXmlParagraphPropertiesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+        xmlns:local="clr-namespace:WpfDemosCommonCode.Office"
+        mc:Ignorable="d"
+        Title="Paragraph Properties" Height="415" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="125"/>
+            <RowDefinition Height="125"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Column="0">
+                <Label>Text Justification</Label>
+                <ComboBox Margin="3,0" Name="textJustificationComboBox" VerticalAlignment="Center" IsEditable="False" Height="23"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Column="1">
+                <Label>Color</Label>
+                <CustomControls:ColorPanelControl x:Name="fillColorPanel" Margin="2" CanEditAlphaChannel="False" CanSetDefaultColor="True"/>
+            </StackPanel>
+        </Grid>
+        <GroupBox Grid.Row="1" Header="Indentation">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Column="0" Grid.Row="0">
+                    <Label>First Line (Points)</Label>
+                    <ComboBox Margin="3,0" Name="firstLineIndentationComboBox" VerticalAlignment="Center" IsEditable="True" Height="23">0</ComboBox>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+                    <Label>Left (Points)</Label>
+                    <ComboBox Margin="3,0" Name="leftIndentationComboBox" VerticalAlignment="Center" IsEditable="True" Height="23">0</ComboBox>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                    <Label>Right (Points)</Label>
+                    <ComboBox Margin="3,0" Name="rightIndentationComboBox" VerticalAlignment="Center" IsEditable="True" Height="23">0</ComboBox>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="2" Header="Spacing">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Column="0" Grid.Row="0">
+                    <Label>Line height factor</Label>
+                    <ComboBox Margin="3,0" Name="lineHeightComboBox" VerticalAlignment="Center" IsEditable="True" Height="23">1</ComboBox>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+                    <Label>Before (Points)</Label>
+                    <ComboBox Margin="3,0" Name="spacingBeforeComboBox" VerticalAlignment="Center" IsEditable="True" Height="23">0</ComboBox>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                    <Label>After (Points)</Label>
+                    <ComboBox Margin="3,0" Name="spacingAfterComboBox" VerticalAlignment="Center" IsEditable="True" Height="23">0</ComboBox>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <CheckBox Name="keepLinesCheckBox" Grid.Row="0" Grid.Column="0">Keep Lines</CheckBox>
+            <CheckBox Name="widowControlCheckBox" Grid.Row="1" Grid.Column="0">Widow Control</CheckBox>
+            <CheckBox Name="keepNextCheckBox" Grid.Row="0" Grid.Column="1">Keep Next</CheckBox>
+            <CheckBox Name="pageBreakBeforeCheckBox" Grid.Row="1" Grid.Column="1">Page Break Before</CheckBox>
+        </Grid>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="4">
+            <Button Name="okButton" IsDefault="True" Margin="4" Width="80" Click="okButton_Click">OK</Button>
+            <Button Name="cancelButton" IsCancel="True" Margin="4" Width="80" Click="cancelButton_Click">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

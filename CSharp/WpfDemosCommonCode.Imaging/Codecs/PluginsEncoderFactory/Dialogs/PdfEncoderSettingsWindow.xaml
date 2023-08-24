@@ -1,0 +1,166 @@
+﻿<Window x:Class="WpfDemosCommonCode.Imaging.Codecs.Dialogs.PdfEncoderSettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.Imaging.Codecs.Dialogs"
+    xmlns:userControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="PDF Encoder Settings" Height="500" Width="359" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="29" />
+        </Grid.RowDefinitions>
+
+        <CheckBox Name="appendCheckBox" Grid.Row="0" VerticalAlignment="Center" Margin="3,2">Append to existing document</CheckBox>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal">
+        <CheckBox Name="pdfaCheckBox" VerticalAlignment="Center" Margin="3,2,22,2" Checked="pdfaCheckBox_CheckedChanged" Unchecked="pdfaCheckBox_CheckedChanged">PDF/A Compatible</CheckBox>
+        <ComboBox Name="conformanceComboBox" Grid.Row="1" Width="121" IsEnabled="False" />
+            </StackPanel>
+        <CheckBox Name="createThumbnailsCheckBox" Grid.Row="2" VerticalAlignment="Center" Margin="3,2">Create thumbnails</CheckBox>
+        <StackPanel Grid.Row="3" VerticalAlignment="Center" Orientation="Horizontal">
+            <Label>Document update mode</Label>
+            <ComboBox Width="121" Height="23" Name="updateModeComboBox"></ComboBox>
+        </StackPanel>
+
+        <TabControl Name="tabControl1" Grid.Row="4" SelectedIndex="0">
+            <TabItem Name="compressionTabItem" Header="Compression">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <GroupBox Name="imageTilesGroupBox" Header="Split image to tiles" Grid.Row="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <CheckBox Name="tileWidthCheckBox" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="3,0" Checked="UpdateUI_Handler" Unchecked="UpdateUI_Handler">horizontal direction, tile width</CheckBox>
+                            <userControls:NumericUpDown x:Name="tileWidthNumericUpDown" IsEnabled="False" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Width="Auto" Minimum="0" Maximum="100000" Value="1024" />
+                            <Label Grid.Column="2" Grid.Row="0" VerticalAlignment="Center">pixels</Label>
+
+                            <CheckBox Name="tileHeightCheckBox" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="3,0" Checked="UpdateUI_Handler" Unchecked="UpdateUI_Handler">vertical direction, tile height</CheckBox>
+                            <userControls:NumericUpDown x:Name="tileHeightNumericUpDown" IsEnabled="False" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Width="Auto" Minimum="0" Maximum="100000" Value="1024" />
+                            <Label Grid.Column="2" Grid.Row="1" VerticalAlignment="Center">pixels</Label>
+                        </Grid>
+                    </GroupBox>
+
+                    <DockPanel Margin="3,0,0,0" Grid.Row="1">
+                        <RadioButton Name="compressionImageRadioButton" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Center" Width="57">Image</RadioButton>
+                        <RadioButton Name="compressionMrcRadioButton"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="57">MRC</RadioButton>
+                        <ComboBox Name="mrcCompressionProfileComboBox" Margin="3,0" Height="23" VerticalAlignment="Center" VerticalContentAlignment="Center">
+                            <ComboBoxItem>Custom</ComboBoxItem>
+                            <ComboBoxItem>Document with images, best quality</ComboBoxItem>
+                            <ComboBoxItem>Document with images, optimal</ComboBoxItem>
+                            <ComboBoxItem>Document with images, best compression</ComboBoxItem>
+                            <ComboBoxItem>Document, best quality</ComboBoxItem>
+                            <ComboBoxItem>Document, optimal</ComboBoxItem>
+                            <ComboBoxItem>Document, best compression</ComboBoxItem>
+                        </ComboBox>
+                    </DockPanel>
+
+                    <GroupBox Name="mrcCompressionSettingsGroupBox" Header="MRC layers compression settings" Grid.Row="2" Visibility="Collapsed">
+                        <TabControl SelectedIndex="0">
+                            <TabItem Name="mrcCommonTabPage" Header="Common">
+                                <Grid Margin="14,0,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <CheckBox Name="mrcUseBackgroundLayerCheckBox" Grid.Row="0" VerticalAlignment="Center">Use background layer</CheckBox>
+                                    <CheckBox Name="mrcImageSegmentationCheckBox" Grid.Row="1" VerticalAlignment="Center">Detect images, place images to</CheckBox>
+                                    <Button Name="mrcImageSegmentationSettingsButton" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75" Margin="20,0" Click="mrcImageSegmentationSettingsButton_Click">Settings...</Button>
+                                    <RadioButton Name="mrcNotUseImagesLayerRadioButton" Grid.Row="2" Margin="20,0" VerticalAlignment="Center">background layer</RadioButton>
+                                    <RadioButton Name="mrcUseImagesLayerRadioButton" Grid.Row="3" Margin="20,0" VerticalAlignment="Center">images layer (each image as resource)</RadioButton>
+                                    <CheckBox Name="mrcHiQualityMaskCheckBox" Grid.Row="4" VerticalAlignment="Center">High quality mask</CheckBox>
+                                    <CheckBox Name="mrcUseFrontCheckBox" Grid.Row="5" VerticalAlignment="Center">Use front layer (text color layer)</CheckBox>
+                                    <CheckBox Name="mrcHiQualityFrontLayerCheckBox" Grid.Row="6" Margin="20,0" VerticalAlignment="Center">High quality front layer</CheckBox>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Name="mrcBackgroundTabPage" Header="Background">
+                                <CustomControls:PdfCompressionControl x:Name="mrcBackgroundCompressionControl" CanUseAutoCompression="False" Width="Auto" Height="Auto"/>
+                            </TabItem>
+                            <TabItem Name="mrcImagesTabPage" Header="Images">
+                                <CustomControls:PdfCompressionControl x:Name="mrcImagesCompressionControl" CanUseAutoCompression="False" Width="Auto" Height="Auto"/>
+                            </TabItem>
+                            <TabItem Name="mrcMaskTabPage" Header="Mask">
+                                <CustomControls:PdfCompressionControl x:Name="mrcMaskCompressionControl" CanUseAutoCompression="False" Width="Auto" Height="Auto"/>
+                            </TabItem>
+                            <TabItem Name="mrcFrontTabPage" Header="Front">
+                                <CustomControls:PdfCompressionControl x:Name="mrcFrontCompressionControl" CanUseAutoCompression="False" Width="Auto" Height="Auto"/>
+                            </TabItem>
+                        </TabControl>
+                    </GroupBox>
+
+                    <CustomControls:PdfCompressionControl x:Name="pdfImageCompressionControl" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="annotationsTabItem" Header="Annotations">
+                <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                    <CheckBox Name="annotationsBinaryCheckBox" Margin="3">Vintasoft Binary</CheckBox>
+                    <CheckBox Name="annotationXmpCheckBox" Margin="3">Vintasoft XMP</CheckBox>
+                    <CheckBox Name="annotationsPdfAppearanceCheckBox" Margin="3">Generate PDF appearance</CheckBox>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Name="documentInformationTabItem" Header="Document information">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">Title</Label>
+                    <TextBox Name="titleTextBox" Grid.Column="1" Grid.Row="0" Margin="3"/>
+
+                    <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">Author</Label>
+                    <TextBox Name="authorTextBox" Grid.Column="1" Grid.Row="1" Margin="3"/>
+
+                    <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">Subject</Label>
+                    <TextBox Name="subjectTextBox" Grid.Column="1" Grid.Row="2" Margin="3"/>
+
+                    <Label Grid.Column="0" Grid.Row="3" VerticalAlignment="Center">Creator</Label>
+                    <TextBox Name="creatorTextBox" Grid.Column="1" Grid.Row="3" Margin="3"/>
+
+                    <Label Grid.Column="0" Grid.Row="4" VerticalAlignment="Center">Keywords</Label>
+                    <TextBox Name="keywordsTextBox" Grid.Column="1" Grid.Row="4" Margin="3"/>
+
+                    <Label Grid.Column="0" Grid.Row="5" VerticalAlignment="Center">Producer</Label>
+                    <TextBox Name="producerTextBox" Grid.Column="1" Grid.Row="5" Margin="3"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="5" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Name="buttonOk" Width="75" Height="23" Margin="3" Click="buttonOk_Click">OK</Button>
+            <Button Name="cancelButton" Width="75" Height="23" Margin="3" Click="cancelButton_Click">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

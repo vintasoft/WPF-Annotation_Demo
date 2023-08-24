@@ -1,0 +1,72 @@
+﻿<Window x:Class="WpfDemosCommonCode.Office.OpenXmlTextPropertiesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+        xmlns:local="clr-namespace:WpfDemosCommonCode.Office"
+        mc:Ignorable="d"
+        Title="Text Properties" Height="465" Width="350"  WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label>Font</Label>
+                <ListBox Grid.Row="1" Margin="3" Name="fontListBox"/>
+            </Grid>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <Label>Size</Label>
+                <ComboBox IsEditable="True" Name="fontSizeComboBox" Margin="3"/>
+                <ListBox Name="fontStyleListBox" Height="90" Margin="3"/>
+                <CheckBox Name="subscriptCheckBox" Margin="3" Checked="subscriptCheckBox_Checked">Subscript</CheckBox>
+                <CheckBox Name="superscriptCheckBox" Margin="3" Checked="superscriptCheckBox_Checked">Superscript</CheckBox>
+                <CheckBox Name="strikeoutCheckBox" Margin="3" Checked="strikeoutCheckBox_Checked">Strikeout</CheckBox>
+                <CheckBox Name="doubleStrikeoutCheckBox" Margin="3" Checked="doubleStrikeoutCheckBox_Checked">Double Strikeout</CheckBox>
+            </StackPanel>
+        </Grid>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2">
+            <Button Name="okButton" IsDefault="True" Margin="4" Width="80" Click="okButton_Click">OK</Button>
+            <Button Name="cancelButton" IsCancel="True" Margin="4" Width="80" Click="cancelButton_Click">Cancel</Button>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top">
+                <Label>Font Color</Label>
+                <CustomControls:ColorPanelControl x:Name="fontColorPanel" Margin="2" CanEditAlphaChannel="False" CanSetDefaultColor="True"/>
+                <Label>Underline</Label>
+                <ComboBox Name="underlineComboBox" IsEditable="False" Margin="2"/>
+                <Label>Horizontal Scale</Label>
+                <ComboBox Name="horizontalScaleComboBox" IsEditable="True" Margin="2"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top">
+                <Label>Text Highlight</Label>
+                <ComboBox Name="textHighlightComboBox" IsEditable="False" Margin="2"/>
+                <Label>Underline Color</Label>
+                <CustomControls:ColorPanelControl x:Name="underlineColorPanel" Margin="2" CanEditAlphaChannel="False" CanSetDefaultColor="True"/>
+                <Label>Character Spacing (Points)</Label>
+                <ComboBox Name="characterSpacingComboBox" IsEditable="True" Margin="2"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
