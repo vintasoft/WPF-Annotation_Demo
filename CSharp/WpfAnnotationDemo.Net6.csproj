@@ -54,9 +54,15 @@
     <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.2.6.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.2.6.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.2.6.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.Wpf.UI" Version="4.2.6.1" />
+    <Reference Include="Vintasoft.Imaging.Office.OpenXML">
+      <HintPath>..\..\..\..\Bin\DotNet6\AnyCPU\Vintasoft.Imaging.Office.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Vintasoft.Imaging.Office.OpenXML.UI">
+      <HintPath>..\..\..\..\Bin\DotNet6\AnyCPU\Vintasoft.Imaging.Office.OpenXml.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Vintasoft.Imaging.Office.OpenXML.Wpf.UI">
+      <HintPath>..\..\..\..\Bin\DotNet6\AnyCPU\Vintasoft.Imaging.Office.OpenXml.Wpf.UI.dll</HintPath>
+    </Reference>
     <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Annotation.Office.Wpf.UI" Version="12.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.2.6.1" />
