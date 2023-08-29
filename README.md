@@ -12,7 +12,7 @@ This C# project uses <a href="https://www.vintasoft.com/vsimaging-dotnet-index.h
 
 
 ## Screenshot
-<img src="vintasoft-wpf-annotation-demo.png" alt="VintaSoft WPF Annotation Demo">
+<img src="vintasoft-wpf-annotation-demo.png" title="VintaSoft WPF Annotation Demo">
 
 
 ## Usage
