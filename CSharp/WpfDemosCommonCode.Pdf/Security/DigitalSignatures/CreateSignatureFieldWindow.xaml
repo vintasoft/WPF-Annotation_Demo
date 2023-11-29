@@ -1,0 +1,65 @@
+﻿<Window x:Class="WpfDemosCommonCode.Pdf.Security.CreateSignatureFieldWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Create Digital Signature" Height="570" Width="355" MinWidth="353" MinHeight="570" MaxHeight="570" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23" />
+            <Setter Property="Margin" Value="3,0,3,0" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="23" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+    </Window.Resources>
+    <StackPanel Margin="3,0,0,3" Orientation="Vertical">
+        <Label>Name</Label>
+        <TextBox Name="signatureNameTextBox" />
+        <Button Name="signatureAppearanceButton" Width="Auto" Click="signatureAppearanceButton_Click">Signature Appearance...</Button>
+        <Label>Certificate</Label>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="42" />
+            </Grid.ColumnDefinitions>
+            <TextBox Name="certificateTextBox" Grid.Column="0" IsReadOnly="True" SelectionChanged="certificateTextBox_SelectionChanged">(Click to select certificate)</TextBox>
+            <Button Name="selectCertificateButton" Grid.Column="1" Width="Auto" Click="selectCertificateButton_Click">...</Button>
+        </Grid>
+        <CheckBox Name="certificateChainCheckBox" Margin="3,6,3,0" IsEnabled="False" Checked="certificateChainCheckBox_Checked" Unchecked="certificateChainCheckBox_Checked">Add Certificate Chain</CheckBox>
+
+            <GroupBox x:Name="timestampProperitesGroupBox" IsEnabled="False" Margin="0,5,0,0" Header="                                                ">
+                <StackPanel Margin="0,5,0,0">
+                    <Button x:Name="timestampServerSettingsButton" Click="timestampServerSettingsButton_Click" Width="Auto">Timestamp Server Settings...</Button>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Hash Algorithm Name"/>
+                        <ComboBox x:Name="timestampHashAlgorithmComboBox" Grid.Column="1" Margin="0,0,3,0" HorizontalAlignment="Right" Width="179">
+                            <ComboBoxItem>SHA1</ComboBoxItem>
+                            <ComboBoxItem>SHA256</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+            <CheckBox x:Name="addTimestampCheckBox" Margin="3,-82,3,65" IsEnabled="False" Checked="addTimestampCheckBox_CheckedChanged" Unchecked="addTimestampCheckBox_CheckedChanged">Add Embedded Timestamp</CheckBox>
+
+
+        <Label Content="Signature Type"/>
+        <ComboBox Margin="3,0" x:Name="signatureTypeComboBox" SelectionChanged="ClearSignatureInfo"/>
+        <Label Content="Signer Name"/>
+        <TextBox x:Name="signerNameTextBox" IsEnabled="True"/>
+        <Label Content="Reason"/>
+        <TextBox x:Name="reasonTextBox" IsEnabled="True"/>
+        <Label Content="Location"/>
+        <TextBox x:Name="locationTextBox" IsEnabled="True"/>
+        <Label Content="Contact Info"/>
+        <TextBox x:Name="contactInfoTextBox" IsEnabled="True"/>
+        <StackPanel Margin="0,10,0,0" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="buttonOk" Width="75" Click="buttonOk_Click" Content="OK"/>
+            <Button x:Name="buttonCancel" Width="75" Click="buttonCancel_Click" Content="Cancel"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

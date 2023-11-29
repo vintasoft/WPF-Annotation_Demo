@@ -130,6 +130,42 @@ namespace WpfDemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
+        bool _allowMrcCompression = true;
+        /// <summary>
+        /// Gets or sets a value that indicates whether PDF document can be compressed with MRC.
+        /// </summary>
+        /// <value>
+        /// <b>True</b> - PDF document can be compressed with or without MRC compression;
+        /// <b>false</b> - PDF document can be compressed with image compression only.
+        /// </value>
+        public bool AllowMrcCompression
+        {
+            get
+            {
+                return _allowMrcCompression;
+            }
+            set
+            {
+                if (value)
+                {
+                    compressionImageRadioButton.Visibility = Visibility.Visible;
+                    compressionMrcRadioButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    compressionImageRadioButton.Visibility = Visibility.Collapsed;
+                    compressionMrcRadioButton.Visibility = Visibility.Collapsed;
+                }
+
+                if (!value)
+                    compressionImageRadioButton.IsChecked = true;
+
+                UpdateUI();
+
+                _allowMrcCompression = value;
+            }
+        }
+
         PdfEncoderSettings _encoderSettings;
         /// <summary>
         /// Gets or sets the PDF encoder settings.

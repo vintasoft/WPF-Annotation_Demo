@@ -103,11 +103,11 @@ namespace WpfDemosCommonCode.Annotation
         /// Gets or sets a value indicating whether transformer hides content when transformation performs.
         /// </summary>
         /// <value>
-        /// <b>True</b> - transformer must hide the comment control content and set the control background to <see cref="TransfromBackgroundColor"/> color when transformation performs;<br/>
+        /// <b>True</b> - transformer must hide the comment control content and set the control background to <see cref="TransformBackgroundColor"/> color when transformation performs;<br/>
         /// <b>false</b> - transformer must not change the comment control content when transformation performs.<br />
         /// Default value is <b>False</b>.
         /// </value>
-        /// <seealso cref="TransfromBackgroundColor"/>
+        /// <seealso cref="TransformBackgroundColor"/>
         public bool HideContentOnTransform
         {
             get
@@ -120,20 +120,20 @@ namespace WpfDemosCommonCode.Annotation
             }
         }
 
-        Color _transfromBackgroundColor = Color.FromArgb(255, 204, 224, 236);
+        Color _transformBackgroundColor = Color.FromArgb(255, 204, 224, 236);
         /// <summary>
         /// Gets or sets the color of the background when comment control is transforming.
         /// </summary>
         /// <seealso cref="HideContentOnTransform"/>
-        public Color TransfromBackgroundColor
+        public Color TransformBackgroundColor
         {
             get
             {
-                return _transfromBackgroundColor;
+                return _transformBackgroundColor;
             }
             set
             {
-                _transfromBackgroundColor = value;
+                _transformBackgroundColor = value;
             }
         }
 
@@ -248,7 +248,7 @@ namespace WpfDemosCommonCode.Annotation
             }
             else
             {
-                CommentControl.Background = new SolidColorBrush(TransfromBackgroundColor);
+                CommentControl.Background = new SolidColorBrush(TransformBackgroundColor);
             }
 
             CommentControl.mainGrid.Visibility = value ? Visibility.Visible : Visibility.Hidden;

@@ -8,8 +8,8 @@ using WpfDemosCommonCode.Imaging;
 
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
-using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 #if !REMOVE_OFFICE_PLUGIN
+using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 using Vintasoft.Imaging.Office.OpenXml.Editor;
 #endif
 using Vintasoft.Imaging.UI;

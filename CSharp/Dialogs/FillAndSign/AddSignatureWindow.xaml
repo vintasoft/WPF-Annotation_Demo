@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfAnnotationDemo.AddSignatureWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAnnotationDemo" 
+        xmlns:ui="clr-namespace:Vintasoft.Imaging.Annotation.Wpf.UI;assembly=Vintasoft.Imaging.Annotation.Wpf.UI"
+        xmlns:vsue="clr-namespace:Vintasoft.Imaging.Wpf.UI.UIElements;assembly=Vintasoft.Imaging.Wpf.UI"
+        mc:Ignorable="d"
+        ResizeMode="CanResize" Height="498" Width="754">
+    <Window.Resources>
+        <BitmapImage x:Key="clearButtonIcon" UriSource="../../Resources/CreateAnnotationTemplate_Clear.png" />
+        <BitmapImage x:Key="fontButtonIcon" UriSource="../../Resources/CreateAnnotationTemplate_FontProperties.png" />
+        <BitmapImage x:Key="imageButtonIcon" UriSource="../../Resources/CreateAnnotationTemplate_Image.png" />
+        <BitmapImage x:Key="freehandButtonIcon" UriSource="../../Resources/CreateAnnotationTemplate_Signature.png" />
+        <BitmapImage x:Key="stampButtonIcon" UriSource="../../Resources/CreateAnnotationTemplate_Stamp.png" />
+        <BitmapImage x:Key="textButtonIcon" UriSource="../../Resources/CreateAnnotationTemplate_Text.png" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <ToolBar Grid.Row="0">
+            <vsue:PanelButtonWithText x:Name="freehandButton" ToolTip="Add Freehand" Text="Freehand" Width="70" ImageSource="{StaticResource freehandButtonIcon}" Click="freehandButton_Click"/>
+            <vsue:PanelButtonWithText x:Name="textButton" ToolTip="Add Text" Text="Text" ImageSource="{StaticResource textButtonIcon}" Click="textButton_Click"/>
+            <vsue:PanelButtonWithText x:Name="stampButton" ToolTip="Add Stamp" Text="Stamp" ImageSource="{StaticResource stampButtonIcon}" Click="stampButton_Click"/>
+            <vsue:PanelButtonWithText x:Name="imageButton" ToolTip="Add Image" Text="Image" ImageSource="{StaticResource imageButtonIcon}" Click="imageButton_Click"/>
+            <Separator/>
+            <vsue:PanelButtonWithText x:Name="clearButton" ToolTip="Clear Template" Text="Clear" ImageSource="{StaticResource clearButtonIcon}" Click="clearButton_Click"/>
+            <Separator/>
+            <vsue:PanelButtonWithText x:Name="fontButton" ToolTip="Font Properties" Text="Font" ImageSource="{StaticResource fontButtonIcon}" Click="fontButton_Click"/>
+        </ToolBar>
+
+        <ui:WpfAnnotationViewer x:Name="annotationViewer" Background="#FFEEEEEE" Grid.Row="1" Margin="5,0,5,0"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5,0,0,0">
+            <TextBlock Text="Name:" Height="20" Margin="0,0,10,0"/>
+            <ComboBox x:Name="nameComboBox" IsEditable="true" Height="25" Width="200" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,5,0">
+            <Button x:Name="okButton" Width="75" Height="23" Margin="0,0,5,0" Click="okButton_Click">OK</Button>
+            <Button Width="75" Height="23" IsCancel="True">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

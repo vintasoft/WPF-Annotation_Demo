@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfDemosCommonCode.Pdf.Security.DocumentSignaturesWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+    Title="Document Signatures" Height="481" Width="640" MinHeight="200" MinWidth="390" WindowStartupLocation="CenterOwner" WindowStyle="SingleBorderWindow">
+    <Grid Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="47" />
+        </Grid.RowDefinitions>
+        <TreeView Name="signaturesTreeView" Grid.Row="0" Margin="3" SelectedItemChanged="signaturesTreeView_SelectedItemChanged"/>
+        <Button Name="okButton" Grid.Row="1" Height="23" Width="75" Margin="3,0" HorizontalAlignment="Right" Click="okButton_Click">OK</Button>
+        <StackPanel HorizontalAlignment="Left" Orientation="Vertical" Grid.Row="1">
+            <CheckBox Name="useSigningCertificateChainToBuildChainCheckBox" Padding="2">Use certificate chain from signature to build and verify certificate chain (no revocation check)</CheckBox>
+            <StackPanel  Orientation="Horizontal" >
+                <Button Name="verifyAllButton" Height="23" Margin="3,0" Click="verifyAllButton_Click">Verify All Signatures</Button>
+                <Button Name="saveDocumentRevisionButton" Height="23" Margin="3,0" IsEnabled="False" Click="saveDocumentRevisionButton_Click">Save Document Resivion As...</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

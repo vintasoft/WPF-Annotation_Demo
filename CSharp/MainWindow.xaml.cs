@@ -21,13 +21,6 @@ using Vintasoft.Imaging.Annotation.Wpf.UI.Comments;
 using Vintasoft.Imaging.Annotation.Wpf.UI.VisualTools;
 using Vintasoft.Imaging.Codecs.Encoders;
 using Vintasoft.Imaging.ImageProcessing;
-#if !REMOVE_PDF_PLUGIN
-using Vintasoft.Imaging.Annotation.Pdf;
-using Vintasoft.Imaging.Pdf;
-using Vintasoft.Imaging.Pdf.Drawing;
-using Vintasoft.Imaging.Pdf.Tree;
-using Vintasoft.Imaging.Pdf.Tree.Annotations;
-#endif
 using Vintasoft.Imaging.Print;
 using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UIActions;
@@ -197,6 +190,23 @@ namespace WpfAnnotationDemo
         /// </summary>
         Point _contextMenuPosition;
 
+        /// <summary>
+        /// The signature-annotations.
+        /// </summary>
+        AnnotationDataCollection _signatureAnnotations = new AnnotationDataCollection();
+
+        /// <summary>
+        /// The index of selected signature-annotation.
+        /// </summary>
+        int _selectedSignatureAnnotationIndex = -1;
+
+#if !REMOVE_PDF_PLUGIN
+        /// <summary>
+        /// The PDF document that is opened in this demo.
+        /// </summary>
+        Vintasoft.Imaging.Pdf.PdfDocument _pdfDocument = null;
+#endif
+
         #endregion
 
 
@@ -237,6 +247,9 @@ namespace WpfAnnotationDemo
             twoContinuousRowsMenuItem.Tag = ImageViewerDisplayMode.TwoContinuousRows;
             twoContinuousColumnsMenuItem.Tag = ImageViewerDisplayMode.TwoContinuousColumns;
 
+#if REMOVE_PDF_PLUGIN
+            fillAndSignMenuItem.Visibility = Visibility.Collapsed;
+#endif
 
             AnnotationCommentController annotationCommentController = new AnnotationCommentController(annotationViewer1.AnnotationDataController);
             WpfImageViewerCommentController imageViewerCommentsController = new WpfImageViewerCommentController(annotationCommentController);
@@ -360,6 +373,18 @@ namespace WpfAnnotationDemo
             ImageProcessingVisualToolActionFactory.CreateActions(visualToolsToolBar);
             CustomVisualToolActionFactory.CreateActions(visualToolsToolBar);
 
+            if (File.Exists(AnnotationTemplatesFilePath))
+            {
+                try
+                {
+                    using (Stream stream = File.OpenRead(AnnotationTemplatesFilePath))
+                        _signatureAnnotations.AddFromStream(stream, new Resolution(96, 96));
+                }
+                catch
+                {
+                }
+            }
+
             annotationViewer1.DisplayMode = ImageViewerDisplayMode.SinglePage;
             annotationViewer1.AutoScroll = false;
         }
@@ -406,6 +431,17 @@ namespace WpfAnnotationDemo
             }
         }
 
+        /// <summary>
+        /// Gets a path to a file, where annotation templates must be saved.
+        /// </summary>
+        internal string AnnotationTemplatesFilePath
+        {
+            get
+            {
+                return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AnnotationTemplates.xmp");
+            }
+        }
+
         #endregion
 
 
@@ -413,6 +449,40 @@ namespace WpfAnnotationDemo
         #region Methods
 
         #region Window
+
+        /// <summary>
+        /// Raises the <see cref="E:Closed" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnClosed(EventArgs e)
+        {
+            try
+            {
+                // if demo contains the annotation templates
+                if (_signatureAnnotations.Count > 0)
+                {
+                    // create stream
+                    using (Stream stream = File.Create(AnnotationTemplatesFilePath))
+                    {
+                        // create the annotation formatter
+                        AnnotationVintasoftXmpFormatter annotationTemplatesFormatter = new AnnotationVintasoftXmpFormatter();
+                        // serialize annotations to a file
+                        annotationTemplatesFormatter.Serialize(stream, _signatureAnnotations);
+                    }
+                }
+                // if demo does not contain the annotation templates
+                else
+                {
+                    // remove file with annotation templates
+                    File.Delete(AnnotationTemplatesFilePath);
+                }
+            }
+            catch
+            {
+            }
+
+            base.OnClosed(e);
+        }
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Window.ContentRendered" /> event.
@@ -551,6 +621,9 @@ namespace WpfAnnotationDemo
             bool isAnnotationBuilding = annotationViewer1.AnnotationVisualTool.IsFocusedAnnotationBuilding;
             bool isCanUndo = _undoManager.UndoCount > 0 && !annotationViewer1.AnnotationVisualTool.IsFocusedAnnotationBuilding;
             bool isCanRedo = _undoManager.RedoCount > 0 && !annotationViewer1.AnnotationVisualTool.IsFocusedAnnotationBuilding;
+#if !REMOVE_PDF_PLUGIN
+            bool isPdfDocument = _pdfDocument != null && _pdfDocument.InteractiveForm != null;
+#endif
 
             // "File" menu
             fileMenuItem.IsEnabled = !isFileOpening && !isFileSaving;
@@ -634,6 +707,12 @@ namespace WpfAnnotationDemo
             cloneImageWithAnnotationsMenuItem.IsEnabled = !isFileOpening && !isFileEmpty;
             //
             saveToFileMenuItem.IsEnabled = !isAnnotationEmpty;
+
+            // "FillAndSign" menu
+            fillAndSignMenuItem.IsEnabled = !isFileOpening && !isFileEmpty && isInteractionModeAuthor;
+#if !REMOVE_PDF_PLUGIN
+            verifySignaturesMenuItem.IsEnabled = isPdfDocument;
+#endif
 
             // annotation viewer context menu
             annotationViewerMenu.IsEnabled = !isFileOpening && !isFileEmpty;
@@ -1597,6 +1676,202 @@ namespace WpfAnnotationDemo
         #endregion
 
 
+        #region 'Fill and Sign'
+
+        /// <summary>
+        /// Handles the Click event of FillSignatureMenuItem object.
+        /// </summary>
+        private void fillSignatureMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            // create dialog that allows to create and select the signature-annotation
+            FillSignatureWindow dlg = new FillSignatureWindow((AnnotationDataCollection)_signatureAnnotations.Clone());
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dlg.Owner = this;
+            if (_selectedSignatureAnnotationIndex != -1)
+                dlg.SelectedSignatureAnnotationIndex = _selectedSignatureAnnotationIndex;
+
+            // show the dialog
+            if (dlg.ShowDialog() == true)
+            {
+                // if signature-annotation is selected
+                if (dlg.SelectedSignatureAnnotation != null)
+                {
+                    // build the signature-annotation on image in viewer
+                    annotationViewer1.AddAndBuildAnnotation(dlg.SelectedSignatureAnnotation);
+                }
+
+                // save index of selected signature-annotation
+                _selectedSignatureAnnotationIndex = dlg.SelectedSignatureAnnotationIndex;
+
+                // remove old signature-annotations
+                _signatureAnnotations.ClearAndDisposeItems();
+
+                // save new signature-annotations
+                _signatureAnnotations.AddRange(dlg.GetSignatureAnnotations());
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of SignDocumentMenuItem object.
+        /// </summary>
+        private void signDocumentMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            AnnotationDataController annotationController = annotationViewer1.AnnotationDataController;
+
+            // if signature-annotation does not exist
+            if (!IsSignatureAnnotationExist(annotationController))
+            {
+                MessageBox.Show(
+                    "The signature-annotation is not found." + Environment.NewLine +
+                    "Please select \"Fill and Sign => Fill Signature...\" menu and create a signature-annotation.",
+                    "Sign PDF document", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            // create dialog that allows to select the signature-annotation
+            WpfAnnotationsInfoWindow annotationsInfoDialog =
+                new WpfAnnotationsInfoWindow(annotationController, "Signature", true, annotationViewer1.FocusedAnnotationData, false, false, "Select the signature-annotation");
+
+            annotationsInfoDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            annotationsInfoDialog.Owner = this;
+
+            // show the dialog
+            if (annotationsInfoDialog.ShowDialog() == true)
+            {
+                // set file filters in file saving dialog
+                saveFileDialog1.Filter = "PDF Files|*.pdf";
+
+                // show the save file dialog
+                if (saveFileDialog1.ShowDialog() == true)
+                {
+                    // create PDF encoder
+                    using (PdfEncoder encoder = new PdfEncoder(true))
+                    {
+                        // if source file is not PDF document
+                        if (string.IsNullOrEmpty(_sourceFilename) || Path.GetExtension(_sourceFilename).ToUpperInvariant() != ".PDF")
+                        {
+                            encoder.Settings.AnnotationsFormat = AnnotationsFormat.VintasoftBinary;
+
+                            // create dialog that allows to set the PDF encoder settings
+                            PdfEncoderSettingsWindow pdfEncoderSettingsDlg = new PdfEncoderSettingsWindow();
+
+                            pdfEncoderSettingsDlg.AppendExistingDocumentEnabled = File.Exists(saveFileDialog1.FileName);
+                            pdfEncoderSettingsDlg.CanEditAnnotationSettings = true;
+                            pdfEncoderSettingsDlg.AllowMrcCompression = false;
+                            pdfEncoderSettingsDlg.EncoderSettings = encoder.Settings;
+                            // show the dialog
+                            if (pdfEncoderSettingsDlg.ShowDialog() != true)
+                                return;
+                        }
+
+                        // create PDF page signature manager
+                        using (Vintasoft.Imaging.Annotation.Pdf.PdfPageSignatureManager manager =
+                            new Vintasoft.Imaging.Annotation.Pdf.PdfPageSignatureManager(annotationViewer1.AnnotationDataController, encoder))
+                        {
+                            manager.SignatureRequest += PdfPageSignatureManager_SignatureRequest;
+
+                            try
+                            {
+                                // for each selected annotation
+                                foreach (AnnotationData signatureAnnotation in annotationsInfoDialog.SelectedAnnotations.Keys)
+                                {
+                                    // get image that contains annotation
+                                    VintasoftImage image = annotationsInfoDialog.SelectedAnnotations[signatureAnnotation];
+
+                                    // registers signature on image
+                                    manager.RegisterSignatureOnImage(image, signatureAnnotation);
+                                }
+
+                                // save PDF document
+                                annotationViewer1.Images.SaveSync(saveFileDialog1.FileName, encoder);
+
+                                MessageBox.Show("Document is signed successfully.");
+                            }
+                            catch (Exception exc)
+                            {
+                                DemosTools.ShowErrorMessage(exc);
+                            }
+                            finally
+                            {
+                                manager.SignatureRequest -= PdfPageSignatureManager_SignatureRequest;
+
+                                _sourceFilename = saveFileDialog1.FileName;
+
+                                UpdateUI();
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                return;
+            }
+#endif
+        }
+
+        /// <summary>
+        /// Returns a value indicating whether image collection has the signature-annotation.
+        /// </summary>
+        /// <param name="annotationController">The annotation controller.</param>
+        /// <returns>A value indicating whether image collection has the signature-annotation.</returns>
+        private static bool IsSignatureAnnotationExist(AnnotationDataController annotationController)
+        {
+            // for each image in annotation data controller
+            for (int i = 0; i < annotationController.Images.Count; i++)
+            {
+                // get annotation collection for image
+                AnnotationDataCollection annotations = annotationController[i];
+                // for each annotation in annotation collection
+                for (int j = 0; j < annotations.Count; j++)
+                {
+                    AnnotationData annotation = annotations[j];
+                    if (annotation.Intent == "Signature")
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+#if !REMOVE_PDF_PLUGIN
+        private void PdfPageSignatureManager_SignatureRequest(object sender, SignatureRequestEventArgs e)
+        {
+            // create dialog that allows to perform signing of PDF document
+            WpfDemosCommonCode.Pdf.Security.CreateSignatureFieldWindow dlg =
+                new WpfDemosCommonCode.Pdf.Security.CreateSignatureFieldWindow(e.SignatureField);
+
+            dlg.CanChangeSignatureAppearance = false;
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dlg.Owner = this;
+
+            // show the dialog
+            dlg.ShowDialog();
+        }
+#endif
+
+        /// <summary>
+        /// Handles the Click event of VerifySignaturesMenuItem object.
+        /// </summary>
+        private void verifySignaturesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            // create dialog that allows to view information about document signatures and verify signature
+            WpfDemosCommonCode.Pdf.Security.DocumentSignaturesWindow dlg =
+                new WpfDemosCommonCode.Pdf.Security.DocumentSignaturesWindow(_pdfDocument);
+
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dlg.Owner = this;
+
+            // show the dialog
+            dlg.ShowDialog();
+#endif
+        }
+
+        #endregion
+
+
         #region 'Help' menu
 
         /// <summary>
@@ -2427,6 +2702,15 @@ namespace WpfAnnotationDemo
                 Dispatcher.Invoke(new CloseCurrentFileDelegate(CloseCurrentFile));
             }
 
+#if !REMOVE_PDF_PLUGIN
+            if (annotationViewer1.Images.Count > 0)
+            {
+                Vintasoft.Imaging.Pdf.Tree.PdfPage page = Vintasoft.Imaging.Pdf.PdfDocumentController.GetPageAssociatedWithImage(annotationViewer1.Images[0]);
+                if (page != null)
+                    _pdfDocument = page.Document;
+            }
+#endif
+
             Dispatcher.Invoke(new SetCursorDelegate(SetCursor), Cursors.Arrow);
 
             // update the UI
@@ -2478,6 +2762,9 @@ namespace WpfAnnotationDemo
         private void CloseSource()
         {
             _sourceFilename = null;
+#if !REMOVE_PDF_PLUGIN
+            _pdfDocument = null;
+#endif
         }
 
         /// <summary>
@@ -2711,47 +2998,10 @@ namespace WpfAnnotationDemo
             WpfAnnotationViewChangedEventArgs e)
         {
             if (e.OldValue != null)
-            {
-                AnnotationData oldValue = e.OldValue.Data;
-                while (oldValue is CompositeAnnotationData)
-                {
-                    CompositeAnnotationData compositeData = (CompositeAnnotationData)oldValue;
+                e.OldValue.Data.PropertyChanged -= new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
 
-                    if (compositeData is StickyNoteAnnotationData)
-                    {
-                        compositeData.PropertyChanged -= new EventHandler<ObjectPropertyChangedEventArgs>(compositeData_PropertyChanged);
-                    }
-
-                    foreach (AnnotationData data in compositeData)
-                    {
-                        oldValue = data;
-                        break;
-                    }
-                }
-                oldValue.PropertyChanged -= new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
-            }
             if (e.NewValue != null)
-            {
-                AnnotationData newValue = e.NewValue.Data;
-                while (newValue is CompositeAnnotationData)
-                {
-                    CompositeAnnotationData compositeData = (CompositeAnnotationData)newValue;
-
-                    if (compositeData is StickyNoteAnnotationData)
-                    {
-                        compositeData.PropertyChanged += new EventHandler<ObjectPropertyChangedEventArgs>(compositeData_PropertyChanged);
-                    }
-
-                    foreach (AnnotationData data in compositeData)
-                    {
-                        newValue = data;
-                        break;
-                    }
-                }
-                newValue.PropertyChanged += new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
-                // save information about last focused annotation
-                _focusedAnnotationData = newValue;
-            }
+                e.NewValue.Data.PropertyChanged += new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
         }
 
         /// <summary>
@@ -2760,53 +3010,10 @@ namespace WpfAnnotationDemo
         private void FocusedAnnotationData_PropertyChanged(
             object sender,
             ObjectPropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == "Location" && annotationViewer1.SelectedAnnotations.Count > 1)
-            {
-                WpfAnnotationView focusedView = annotationViewer1.AnnotationVisualTool.FocusedAnnotationView;
-                if (focusedView != null && focusedView.InteractionController != null)
-                {
-                    WpfInteractionArea focusedArea = focusedView.InteractionController.FocusedInteractionArea;
-                    if (focusedArea != null && focusedArea.InteractionName == "Move")
-                    {
-                        System.Drawing.PointF oldValue = (System.Drawing.PointF)e.OldValue;
-                        System.Drawing.PointF newValue = (System.Drawing.PointF)e.NewValue;
-                        System.Drawing.PointF locationDelta = new System.Drawing.PointF(newValue.X - oldValue.X, newValue.Y - oldValue.Y);
-                        AnnotationData[] annotations = new AnnotationData[annotationViewer1.SelectedAnnotations.Count];
-                        for (int i = 0; i < annotationViewer1.SelectedAnnotations.Count; i++)
-                            annotations[i] = annotationViewer1.SelectedAnnotations[i].Data;
-                        AnnotationDemosTools.ChangeAnnotationsLocation(locationDelta, annotations, (AnnotationData)sender);
-                    }
-                }
-            }
-            else if (e.PropertyName == "Comment")
+        {            
+            if (e.PropertyName == "Comment")
             {
                 UpdateUI();
-            }
-        }
-
-        /// <summary>
-        /// Composite annotation property is changed.
-        /// </summary>
-        private void compositeData_PropertyChanged(object sender, ObjectPropertyChangedEventArgs e)
-        {
-            StickyNoteAnnotationData stickyNote = sender as StickyNoteAnnotationData;
-            if (stickyNote != null)
-            {
-                if (e.PropertyName == "CollapsedType" || e.PropertyName == "IsCollapsed")
-                {
-                    if (_focusedAnnotationData != null)
-                    {
-                        _focusedAnnotationData.PropertyChanged -= new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
-                    }
-
-                    foreach (AnnotationData data in stickyNote)
-                    {
-                        _focusedAnnotationData = data;
-                        _focusedAnnotationData.PropertyChanged += new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
-                        break;
-                    }
-                }
             }
         }
 
@@ -3258,6 +3465,13 @@ namespace WpfAnnotationDemo
                 _saveFilename = null;
                 _isFileReadOnlyMode = false;
             }
+
+#if !REMOVE_PDF_PLUGIN
+            _pdfDocument = null;
+            Vintasoft.Imaging.Pdf.Tree.PdfPage page = Vintasoft.Imaging.Pdf.PdfDocumentController.GetPageAssociatedWithImage(annotationViewer1.Images[0]);
+            if (page != null)
+                _pdfDocument = page.Document;
+#endif
 
             IsFileSaving = false;
         }

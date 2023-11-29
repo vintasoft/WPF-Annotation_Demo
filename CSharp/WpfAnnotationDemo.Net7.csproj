@@ -13,7 +13,7 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>    
     <EnableDefaultItems>false</EnableDefaultItems>
-    <Version>12.2.12.1</Version>
+    <Version>12.3.0.1</Version>
     <AssemblyName>WpfAnnotationDemo</AssemblyName>
     <RootNamespace>WpfAnnotationDemo</RootNamespace>
     <StartupObject>WpfAnnotationDemo.App</StartupObject>
@@ -33,7 +33,7 @@
   
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Win32.Registry" Version="6.0.0-preview.5.21301.5" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
 
     <PackageReference Include="System.IO.Packaging" Version="7.0.0" />
 
@@ -43,29 +43,29 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Vintasoft.Imaging" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Wpf.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.Wpf.UI" Version="4.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.Wpf.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.UI" Version="9.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Wpf" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Wpf.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Shared" Version="4.0.0.3" />
+    <PackageReference Include="Vintasoft.Imaging" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Wpf.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.Wpf.UI" Version="4.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.Wpf.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.UI" Version="9.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Wpf" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Wpf.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="4.1.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -170,8 +170,6 @@
     </Compile>
     <Compile Include="WpfDemosCommonCode.Annotation\CustomAnnotationVisualToolUndoMonitor.cs">
     </Compile>
-    <Compile Include="WpfDemosCommonCode.Annotation\Dialogs\AnnotationInteractionArea\WpfAnnotationInteractionAreaAppearanceManager.cs">
-    </Compile>
     <Compile Include="WpfDemosCommonCode.Annotation\Dialogs\WpfAnnotationsInfoWindow.xaml.cs">
       <DependentUpon>WpfAnnotationsInfoWindow.xaml</DependentUpon>
     </Compile>
@@ -261,6 +259,9 @@
     <Compile Include="WpfDemosCommonCode.Imaging\SelectImageWindow.xaml.cs">
       <DependentUpon>SelectImageWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\ServerSettingsWindow.xaml.cs">
+      <DependentUpon>ServerSettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WpfDemosCommonCode.Imaging\ThumbnailViewer\ThumbnailViewerSettingsWindow.xaml.cs">
       <DependentUpon>ThumbnailViewerSettingsWindow.xaml</DependentUpon>
     </Compile>
@@ -345,9 +346,32 @@
     <Compile Include="WpfDemosCommonCode\WpfAboutBoxBaseWindow.xaml.cs">
       <DependentUpon>WpfAboutBoxBaseWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\CertificatePasswordWindow.xaml.cs">
+      <DependentUpon>CertificatePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\SelectCertificateWindow.xaml.cs">
+      <DependentUpon>SelectCertificateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\CreateSignatureAppearanceEventArgs.cs">
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\CreateSignatureFieldWindow.xaml.cs">
+      <DependentUpon>CreateSignatureFieldWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\DocumentSignaturesWindow.xaml.cs">
+      <DependentUpon>DocumentSignaturesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\AnnotationFontPropertiesWindow.xaml.cs">
+      <DependentUpon>AnnotationFontPropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\AddSignatureWindow.xaml.cs">
+      <DependentUpon>AddSignatureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\FillSignatureWindow.xaml.cs">
+      <DependentUpon>FillSignatureWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -602,6 +626,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\ServerSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WpfDemosCommonCode.Imaging\ThumbnailViewer\ThumbnailViewerSettingsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -657,6 +685,34 @@
     <Page Include="WpfDemosCommonCode\WpfAboutBoxBaseWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\CertificatePasswordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\SelectCertificateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\CreateSignatureFieldWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Pdf\Security\DigitalSignatures\DocumentSignaturesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\FillAndSign\AnnotationFontPropertiesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\FillAndSign\AddSignatureWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\FillAndSign\FillSignatureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -888,5 +944,14 @@
     </Resource>
     <Resource Include="WpfDemosCommonCode.Office\OfficeDocumentVisualEditor\Icons\UnderlinedText.png">
     </Resource>
+    <Resource Include="Resources\CreateAnnotationTemplate_Clear.png" />
+    <Resource Include="Resources\CreateAnnotationTemplate_Image.png" />
+    <Resource Include="Resources\CreateAnnotationTemplate_Signature.png" />
+    <Resource Include="Resources\CreateAnnotationTemplate_Stamp.png" />
+    <Resource Include="Resources\CreateAnnotationTemplate_Text.png" />
+    <Resource Include="Resources\FillAndSign_Add.png" />
+    <Resource Include="Resources\FillAndSign_Remove.png" />
+    <Resource Include="Resources\FillAndSign_Save.png" />
+    <Resource Include="Resources\CreateAnnotationTemplate_FontProperties.png" />
   </ItemGroup>
 </Project>

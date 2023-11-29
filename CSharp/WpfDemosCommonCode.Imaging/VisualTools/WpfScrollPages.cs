@@ -181,9 +181,9 @@ namespace WpfDemosCommonCode.Imaging
             centerPoint.X += ImageViewer.HorizontalOffset;
 
             // get transform from image space to viewer space
-            AffineMatrix pointTransfromMatrix = ImageViewer.GetTransformFromVisualToolToImage(image);
+            AffineMatrix pointTransformMatrix = ImageViewer.GetTransformFromVisualToolToImage(image);
             // transform the point
-            centerPoint = WpfPointAffineTransform.TransformPoint(pointTransfromMatrix, centerPoint);
+            centerPoint = WpfPointAffineTransform.TransformPoint(pointTransformMatrix, centerPoint);
 
             return centerPoint;
         }

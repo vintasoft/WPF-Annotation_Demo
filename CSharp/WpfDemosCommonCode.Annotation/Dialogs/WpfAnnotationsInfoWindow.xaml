@@ -8,17 +8,20 @@
             <RowDefinition Height="29*" />
         </Grid.RowDefinitions>
 
-        <ListView Name="listView1" Grid.Row="0">            
+        <ListView Name="annoInfoListView" Grid.Row="0" SelectionChanged="annoInfoListView_SelectionChanged">            
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Page number" DisplayMemberBinding="{Binding Path=PageNumber}" Width="Auto"/>
-                    <GridViewColumn Header="Annotation type" DisplayMemberBinding="{Binding Path=Type}" Width="273"/>
+                    <GridViewColumn Header="Annotation" DisplayMemberBinding="{Binding Path=Name}" Width="273"/>
                     <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Path=Location}" Width="166"/>
                     <GridViewColumn Header="Creation time" DisplayMemberBinding="{Binding Path=CreationTime}" Width="142"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button Width="75" Height="23" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Click="okButton_Click">OK</Button>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,5,0">
+            <Button x:Name="okButton" Width="75" Height="23" Margin="0,0,5,0" IsEnabled="True" Click="okButton_Click">OK</Button>
+            <Button Width="75" Height="23" IsCancel="True">Cancel</Button>
+        </StackPanel>
     </Grid>
 </Window>

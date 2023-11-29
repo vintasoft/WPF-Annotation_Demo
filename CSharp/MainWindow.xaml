@@ -345,6 +345,11 @@
                     <MenuItem Header="Burn Annotations on Image" Name="burnAnnotationsOnImageMenuItem" Click="burnAnnotationsOnImageMenuItem_Click" />
                     <MenuItem Header="Clone Image with Annotations" Name="cloneImageWithAnnotationsMenuItem" Click="cloneImageWithAnnotationsMenuItem_Click" />
                 </MenuItem>
+                <MenuItem Header="Fill And Sign" Name="fillAndSignMenuItem">
+                    <MenuItem Header="Fill Signature..." Name="fillSignatureMenuItem" Click="fillSignatureMenuItem_Click" />
+                    <MenuItem Header="Sign Document..." Name="signDocumentMenuItem" Click="signDocumentMenuItem_Click" />
+                    <MenuItem Header="Verify Signatures..." Name="verifySignaturesMenuItem" Click="verifySignaturesMenuItem_Click" />
+                </MenuItem>
                 <MenuItem Header="Help" Name="helpMenuItem">
                     <MenuItem Header="About..." Name="aboutMenuItem" Click="aboutMenuItem_Click"/>
                 </MenuItem>
@@ -422,7 +427,8 @@
                                           InputGestureDelete="{x:Null}"
                                           PreviewKeyDown="annotationViewer1_PreviewKeyDown"
                                           RendererCacheSize="256"
-                                          IsKeyboardNavigationEnabled="True"        
+                                          IsKeyboardNavigationEnabled="True"     
+                                          AllowMoveSelectedAnnotations="True"
                                           DisplayMode="SingleContinuousColumn">
                             <vsai:WpfAnnotationViewer.ContextMenu>
                                 <ContextMenu Name="annotationViewerMenu" Opened="annotationViewerMenu_Opened">
