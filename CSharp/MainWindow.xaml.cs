@@ -1731,7 +1731,7 @@ namespace WpfAnnotationDemo
 
             // create dialog that allows to select the signature-annotation
             WpfAnnotationsInfoWindow annotationsInfoDialog =
-                new WpfAnnotationsInfoWindow(annotationController, "Signature", true, annotationViewer1.FocusedAnnotationData, false, false, "Select the signature-annotation");
+                new WpfAnnotationsInfoWindow(annotationController, "Signature", true, annotationViewer1.FocusedAnnotationData, false, true, "Select the signature-annotation");
 
             annotationsInfoDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             annotationsInfoDialog.Owner = this;
