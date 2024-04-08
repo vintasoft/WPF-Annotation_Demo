@@ -384,9 +384,6 @@ namespace WpfAnnotationDemo
                 {
                 }
             }
-
-            annotationViewer1.DisplayMode = ImageViewerDisplayMode.SinglePage;
-            annotationViewer1.AutoScroll = false;
         }
 
         #endregion
