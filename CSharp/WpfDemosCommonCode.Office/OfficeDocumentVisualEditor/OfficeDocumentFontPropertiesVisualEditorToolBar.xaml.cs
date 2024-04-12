@@ -253,7 +253,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the TextChanged event of FontNameComboBox object.
+        /// Handles the TextChanged event of fontNameComboBox object.
         /// </summary>
         private void fontNameComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -269,7 +269,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the TextChanged event of FontSizeComboBox object.
+        /// Handles the TextChanged event of fontSizeComboBox object.
         /// </summary>
         private void fontSizeComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {

@@ -333,7 +333,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the DocumentChanged event of VisualEditor object.
+        /// Handles the DocumentChanged event of _visualEditor object.
         /// </summary>
         private void _visualEditor_DocumentChanged(object sender, EventArgs e)
         {
@@ -343,7 +343,7 @@ namespace WpfDemosCommonCode.Office
         #endregion
 
         /// <summary>
-        /// Handles the Click event of ChartButton object.
+        /// Handles the Click event of chartButton object.
         /// </summary>
         private void chartButton_Click(object sender, RoutedEventArgs e)
         {
@@ -351,7 +351,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of IncreaseContentScaleButton object.
+        /// Handles the Click event of increaseContentScaleButton object.
         /// </summary>
         private void increaseContentScaleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -359,7 +359,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of DecreaseContentScaleButton object.
+        /// Handles the Click event of decreaseContentScaleButton object.
         /// </summary>
         private void decreaseContentScaleButton_Click(object sender, RoutedEventArgs e)
         {

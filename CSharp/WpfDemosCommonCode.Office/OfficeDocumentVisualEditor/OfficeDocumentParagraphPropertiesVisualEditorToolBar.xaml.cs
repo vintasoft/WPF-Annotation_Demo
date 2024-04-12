@@ -105,7 +105,7 @@ namespace WpfDemosCommonCode.Office
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of ParagraphJLeftButton object.
+        /// Handles the Click event of paragraphJLeftButton object.
         /// </summary>
         private void paragraphJLeftButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -120,7 +120,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ParagraphJCenterButton object.
+        /// Handles the Click event of paragraphJCenterButton object.
         /// </summary>
         private void paragraphJCenterButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -135,7 +135,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ParagraphJRightButton object.
+        /// Handles the Click event of paragraphJRightButton object.
         /// </summary>
         private void paragraphJRightButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -150,7 +150,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ParagraphJBothButton object.
+        /// Handles the Click event of paragraphJBothButton object.
         /// </summary>
         private void paragraphJBothButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -165,7 +165,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of DecParagraphLeftIndentationButton object.
+        /// Handles the Click event of decParagraphLeftIndentationButton object.
         /// </summary>
         private void decParagraphLeftIndentationButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -180,7 +180,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of IncParagraphLeftIndentationButton object.
+        /// Handles the Click event of incParagraphLeftIndentationButton object.
         /// </summary>
         private void incParagraphLeftIndentationButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -195,7 +195,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of DecParagraphFirstLineIndentationButton object.
+        /// Handles the Click event of decParagraphFirstLineIndentationButton object.
         /// </summary>
         private void decParagraphFirstLineIndentationButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -211,7 +211,7 @@ namespace WpfDemosCommonCode.Office
 
 
         /// <summary>
-        /// Handles the Click event of IncParagraphFirstLineIndentationButton object.
+        /// Handles the Click event of incParagraphFirstLineIndentationButton object.
         /// </summary>
         private void incParagraphFirstLineIndentationButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -227,7 +227,7 @@ namespace WpfDemosCommonCode.Office
 
 
         /// <summary>
-        /// Handles the Click event of ParagraphNumberingButton object.
+        /// Handles the Click event of paragraphNumberingButton object.
         /// </summary>
         private void paragraphNumberingButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -262,7 +262,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ParagraphPropertiesButton object.
+        /// Handles the Click event of paragraphPropertiesButton object.
         /// </summary>
         private void paragraphPropertiesButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {

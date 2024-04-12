@@ -168,7 +168,7 @@ namespace WpfDemosCommonCode.Pdf.Security
         }
 
         /// <summary>
-        /// Handles the MouseDoubleClick event of CertificatesListBox object.
+        /// Handles the MouseDoubleClick event of certificatesListBox object.
         /// </summary>
         private void certificatesListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

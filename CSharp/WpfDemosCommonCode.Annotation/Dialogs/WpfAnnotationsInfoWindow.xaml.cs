@@ -278,7 +278,7 @@ namespace WpfDemosCommonCode.Annotation
         #region Methods
 
         /// <summary>
-        /// Handles the SelectionChanged event of AnnoInfoListView object.
+        /// Handles the SelectionChanged event of annoInfoListView object.
         /// </summary>
         private void annoInfoListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -287,7 +287,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {

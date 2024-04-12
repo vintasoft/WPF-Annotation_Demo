@@ -151,7 +151,7 @@ namespace WpfDemosCommonCode.Office
         #region PRIVATE
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -160,7 +160,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -169,7 +169,7 @@ namespace WpfDemosCommonCode.Office
 
 
         /// <summary>
-        /// Handles the Checked event of SubscriptCheckBox object.
+        /// Handles the Checked event of subscriptCheckBox object.
         /// </summary>
         private void subscriptCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -177,7 +177,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Checked event of SuperscriptCheckBox object.
+        /// Handles the Checked event of superscriptCheckBox object.
         /// </summary>
         private void superscriptCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -185,7 +185,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Checked event of StrikeoutCheckBox object.
+        /// Handles the Checked event of strikeoutCheckBox object.
         /// </summary>
         private void strikeoutCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -193,7 +193,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Checked event of DoubleStrikeoutCheckBox object.
+        /// Handles the Checked event of doubleStrikeoutCheckBox object.
         /// </summary>
         private void doubleStrikeoutCheckBox_Checked(object sender, RoutedEventArgs e)
         {

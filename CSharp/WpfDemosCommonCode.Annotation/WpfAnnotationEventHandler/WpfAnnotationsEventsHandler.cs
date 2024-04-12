@@ -205,7 +205,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Changing event of DataCollection object.
+        /// Handles the Changing event of dataCollection object.
         /// </summary>
         private void dataCollection_Changing(object sender, CollectionChangeEventArgs<AnnotationData> e)
         {
@@ -214,7 +214,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Changed event of DataCollection object.
+        /// Handles the Changed event of dataCollection object.
         /// </summary>
         private void dataCollection_Changed(object sender, CollectionChangeEventArgs<AnnotationData> e)
         {
@@ -229,7 +229,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the ItemPropertyChanging event of DataCollection object.
+        /// Handles the ItemPropertyChanging event of dataCollection object.
         /// </summary>
         private void dataCollection_ItemPropertyChanging(object sender, AnnotationDataPropertyChangingEventArgs e)
         {
@@ -238,7 +238,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the ItemPropertyChanged event of DataCollection object.
+        /// Handles the ItemPropertyChanged event of dataCollection object.
         /// </summary>
         private void dataCollection_ItemPropertyChanged(object sender, AnnotationDataPropertyChangedEventArgs e)
         {
@@ -247,7 +247,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the MouseWheel event of AnnotationView object.
+        /// Handles the MouseWheel event of annotationView object.
         /// </summary>
         private void annotationView_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -256,7 +256,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the MouseUp event of AnnotationView object.
+        /// Handles the MouseUp event of annotationView object.
         /// </summary>
         private void annotationView_MouseUp(object sender, MouseEventArgs e)
         {
@@ -265,7 +265,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the MouseMove event of AnnotationView object.
+        /// Handles the MouseMove event of annotationView object.
         /// </summary>
         private void annotationView_MouseMove(object sender, MouseEventArgs e)
         {
@@ -274,7 +274,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the MouseLeave event of AnnotationView object.
+        /// Handles the MouseLeave event of annotationView object.
         /// </summary>
         private void annotationView_MouseLeave(object sender, MouseEventArgs e)
         {
@@ -283,7 +283,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the MouseEnter event of AnnotationView object.
+        /// Handles the MouseEnter event of annotationView object.
         /// </summary>
         private void annotationView_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -292,7 +292,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the MouseDown event of AnnotationView object.
+        /// Handles the MouseDown event of annotationView object.
         /// </summary>
         private void annotationView_MouseDown(object sender, MouseEventArgs e)
         {

@@ -46,7 +46,7 @@ namespace WpfDemosCommonCode.Annotation
         #region Methods
 
         /// <summary>
-        /// Handles the SelectedAnnotationViewChanged event of AnnotationViewer object.
+        /// Handles the SelectedAnnotationViewChanged event of annotationViewer object.
         /// </summary>
         private void annotationViewer_SelectedAnnotationViewChanged(object sender, PropertyChangedEventArgs<WpfAnnotationView> e)
         {
@@ -55,7 +55,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the AnnotationTransformingStarted event of AnnotationViewer object.
+        /// Handles the AnnotationTransformingStarted event of annotationViewer object.
         /// </summary>
         private void annotationViewer_AnnotationTransformingStarted(object sender, WpfAnnotationViewEventArgs e)
         {
@@ -64,7 +64,7 @@ namespace WpfDemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the AnnotationTransformingFinished event of AnnotationViewer object.
+        /// Handles the AnnotationTransformingFinished event of annotationViewer object.
         /// </summary>
         private void annotationViewer_AnnotationTransformingFinished(object sender, WpfAnnotationViewEventArgs e)
         {

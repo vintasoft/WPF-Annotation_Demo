@@ -1215,7 +1215,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the TextChanged event of AnnotationEventsLog object.
+        /// Handles the TextChanged event of annotationEventsLog object.
         /// </summary>
         private void annotationEventsLog_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -1676,7 +1676,7 @@ namespace WpfAnnotationDemo
         #region 'Fill and Sign'
 
         /// <summary>
-        /// Handles the Click event of FillSignatureMenuItem object.
+        /// Handles the Click event of fillSignatureMenuItem object.
         /// </summary>
         private void fillSignatureMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -1709,7 +1709,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SignDocumentMenuItem object.
+        /// Handles the Click event of signDocumentMenuItem object.
         /// </summary>
         private void signDocumentMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -1833,6 +1833,9 @@ namespace WpfAnnotationDemo
         }
 
 #if !REMOVE_PDF_PLUGIN
+        /// <summary>
+        /// Handles the SignatureRequest event of PdfPageSignatureManager object.
+        /// </summary>
         private void PdfPageSignatureManager_SignatureRequest(object sender, SignatureRequestEventArgs e)
         {
             // create dialog that allows to perform signing of PDF document
@@ -1849,7 +1852,7 @@ namespace WpfAnnotationDemo
 #endif
 
         /// <summary>
-        /// Handles the Click event of VerifySignaturesMenuItem object.
+        /// Handles the Click event of verifySignaturesMenuItem object.
         /// </summary>
         private void verifySignaturesMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -2263,7 +2266,7 @@ namespace WpfAnnotationDemo
 
 
         /// <summary>
-        /// Handles the ImageCollectionChanged event of Images property of AnnotationViewer1 object.
+        /// Handles the Images_ImageCollectionChanged event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_Images_ImageCollectionChanged(object sender, ImageCollectionChangeEventArgs e)
         {
@@ -3487,7 +3490,7 @@ namespace WpfAnnotationDemo
         #region Hot keys
 
         /// <summary>
-        /// Handles the CanExecute event of OpenCommandBinding object.
+        /// Handles the CanExecute event of openCommandBinding object.
         /// </summary>
         private void openCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3495,7 +3498,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of AddCommandBinding object.
+        /// Handles the CanExecute event of addCommandBinding object.
         /// </summary>
         private void addCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3503,7 +3506,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of SaveAsCommandBinding object.
+        /// Handles the CanExecute event of saveAsCommandBinding object.
         /// </summary>
         private void saveAsCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3511,7 +3514,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of CloseCommandBinding object.
+        /// Handles the CanExecute event of closeCommandBinding object.
         /// </summary>
         private void closeCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3519,7 +3522,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of PrintCommandBinding object.
+        /// Handles the CanExecute event of printCommandBinding object.
         /// </summary>
         private void printCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3527,7 +3530,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of ExitCommandBinding object.
+        /// Handles the CanExecute event of exitCommandBinding object.
         /// </summary>
         private void exitCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3535,7 +3538,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of CutCommandBinding object.
+        /// Handles the CanExecute event of cutCommandBinding object.
         /// </summary>
         private void cutCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3543,7 +3546,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of CopyCommandBinding object.
+        /// Handles the CanExecute event of copyCommandBinding object.
         /// </summary>
         private void copyCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3551,7 +3554,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of PasteCommandBinding object.
+        /// Handles the CanExecute event of pasteCommandBinding object.
         /// </summary>
         private void pasteCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3559,7 +3562,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of DeleteCommandBinding object.
+        /// Handles the CanExecute event of deleteCommandBinding object.
         /// </summary>
         private void deleteCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3568,7 +3571,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of DeleteAllCommandBinding object.
+        /// Handles the CanExecute event of deleteAllCommandBinding object.
         /// </summary>
         private void deleteAllCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3576,7 +3579,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of SelectAllCommandBinding object.
+        /// Handles the CanExecute event of selectAllCommandBinding object.
         /// </summary>
         private void selectAllCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3584,7 +3587,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of GroupCommandBinding object.
+        /// Handles the CanExecute event of groupCommandBinding object.
         /// </summary>
         private void groupCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3592,7 +3595,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of GroupAllCommandBinding object.
+        /// Handles the CanExecute event of groupAllCommandBinding object.
         /// </summary>
         private void groupAllCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3600,7 +3603,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of RotateClockwiseCommandBinding object.
+        /// Handles the CanExecute event of rotateClockwiseCommandBinding object.
         /// </summary>
         private void rotateClockwiseCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3608,7 +3611,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of RotateCounterclockwiseCommandBinding object.
+        /// Handles the CanExecute event of rotateCounterclockwiseCommandBinding object.
         /// </summary>
         private void rotateCounterclockwiseCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3616,7 +3619,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of UndoCommandBinding object.
+        /// Handles the CanExecute event of undoCommandBinding object.
         /// </summary>
         private void undoCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -3624,7 +3627,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of RedoCommandBinding object.
+        /// Handles the CanExecute event of redoCommandBinding object.
         /// </summary>
         private void redoCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {

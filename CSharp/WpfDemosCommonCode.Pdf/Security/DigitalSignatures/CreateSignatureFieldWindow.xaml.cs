@@ -473,7 +473,7 @@ namespace WpfDemosCommonCode.Pdf.Security
         }
 
         /// <summary>
-        /// Handles the Checked event of CertificateChainCheckBox object.
+        /// Handles the Checked event of certificateChainCheckBox object.
         /// </summary>
         private void certificateChainCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -500,7 +500,7 @@ namespace WpfDemosCommonCode.Pdf.Security
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of AddTimestampCheckBox object.
+        /// Handles the CheckedChanged event of addTimestampCheckBox object.
         /// </summary>
         private void addTimestampCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {

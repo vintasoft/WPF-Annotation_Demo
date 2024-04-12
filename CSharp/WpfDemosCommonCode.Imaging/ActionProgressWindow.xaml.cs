@@ -424,7 +424,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the DoWork event of BackgroundWorker object.
+        /// Handles the DoWork event of backgroundWorker object.
         /// </summary>
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -432,7 +432,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the RunWorkerCompleted event of BackgroundWorker object.
+        /// Handles the RunWorkerCompleted event of backgroundWorker object.
         /// </summary>
         private void backgroundWorker_RunWorkerCompleted(
             object sender,
@@ -461,7 +461,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {

@@ -74,6 +74,14 @@ namespace WpfDemosCommonCode.Imaging
         #region PUBLIC
 
         /// <summary>
+        /// Shows the incorrect password message.
+        /// </summary>
+        public void ShowIncorrectPasswordMessage()
+        {
+            MessageBox.Show(string.Format("The '{0}' password is incorrect.", Password), "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
+        /// <summary>
         /// Authenticates the specified document.
         /// </summary>
         /// <param name="decoder">The decoder that provides access to the document.</param>
@@ -108,9 +116,7 @@ namespace WpfDemosCommonCode.Imaging
                         // if user is NOT authorized
                         if (!authorizationResult.IsAuthorized)
                         {
-                            MessageBox.Show(
-                                string.Format("The {0} password is incorrect.", documentPasswordWindow.authenticateTypeComboBox.Text),
-                                "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            documentPasswordWindow.ShowIncorrectPasswordMessage();
                         }
                         // if user is authorized
                         else

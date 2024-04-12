@@ -107,7 +107,7 @@ namespace WpfAnnotationDemo
         #region UI
 
         /// <summary>
-        /// Handles the Click event of FreehandButton object.
+        /// Handles the Click event of freehandButton object.
         /// </summary>
         private void freehandButton_Click(object sender, RoutedEventArgs e)
         {
@@ -115,7 +115,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of TextButton object.
+        /// Handles the Click event of textButton object.
         /// </summary>
         private void textButton_Click(object sender, RoutedEventArgs e)
         {
@@ -123,7 +123,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of StampButton object.
+        /// Handles the Click event of stampButton object.
         /// </summary>
         private void stampButton_Click(object sender, RoutedEventArgs e)
         {
@@ -131,7 +131,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ImageButton object.
+        /// Handles the Click event of imageButton object.
         /// </summary>
         private void imageButton_Click(object sender, RoutedEventArgs e)
         {
@@ -152,7 +152,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of FontButton object.
+        /// Handles the Click event of fontButton object.
         /// </summary>
         private void fontButton_Click(object sender, RoutedEventArgs e)
         {
@@ -173,7 +173,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ClearButton object.
+        /// Handles the Click event of clearButton object.
         /// </summary>
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
@@ -181,7 +181,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -222,7 +222,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of PropertiesMenuItem object.
+        /// Handles the Click event of propertiesMenuItem object.
         /// </summary>
         private void propertiesMenuItem_Click(object sender, RoutedEventArgs e)
         {

@@ -216,7 +216,7 @@ namespace WpfDemosCommonCode.Office
         #region Methods
 
         /// <summary>
-        /// Handles the SelectionChanged event of ChartComboBox object.
+        /// Handles the SelectionChanged event of chartComboBox object.
         /// </summary>
         private void chartComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -240,7 +240,7 @@ namespace WpfDemosCommonCode.Office
 
 
         /// <summary>
-        /// Handles the TextChanged event of TitleTextBox object.
+        /// Handles the TextChanged event of titleTextBox object.
         /// </summary>
         private void titleTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -252,7 +252,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -260,7 +260,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of AddRowButton object.
+        /// Handles the Click event of addRowButton object.
         /// </summary>
         private void addRowButton_Click(object sender, RoutedEventArgs e)
         {
@@ -272,7 +272,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of InsertRowButton object.
+        /// Handles the Click event of insertRowButton object.
         /// </summary>
         private void insertRowButton_Click(object sender, RoutedEventArgs e)
         {
@@ -284,7 +284,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ClearRowButton object.
+        /// Handles the Click event of clearRowButton object.
         /// </summary>
         private void clearRowButton_Click(object sender, RoutedEventArgs e)
         {
@@ -298,7 +298,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveRowButton object.
+        /// Handles the Click event of removeRowButton object.
         /// </summary>
         private void removeRowButton_Click(object sender, RoutedEventArgs e)
         {
@@ -311,7 +311,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of AddColumnButton object.
+        /// Handles the Click event of addColumnButton object.
         /// </summary>
         private void addColumnButton_Click(object sender, RoutedEventArgs e)
         {
@@ -325,7 +325,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of InsertColumnButton object.
+        /// Handles the Click event of insertColumnButton object.
         /// </summary>
         private void insertColumnButton_Click(object sender, RoutedEventArgs e)
         {
@@ -356,7 +356,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ClearColumnButton object.
+        /// Handles the Click event of clearColumnButton object.
         /// </summary>
         private void clearColumnButton_Click(object sender, RoutedEventArgs e)
         {
@@ -370,7 +370,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveColumnButton object.
+        /// Handles the Click event of removeColumnButton object.
         /// </summary>
         private void removeColumnButton_Click(object sender, RoutedEventArgs e)
         {
@@ -388,7 +388,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the SelectedCellsChanged event of ChartDataGrid object.
+        /// Handles the SelectedCellsChanged event of chartDataGrid object.
         /// </summary>
         private void chartDataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
@@ -396,7 +396,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the ColorChanged event of SeriesColorPanelControl object.
+        /// Handles the ColorChanged event of seriesColorPanelControl object.
         /// </summary>
         private void seriesColorPanelControl_ColorChanged(object sender, EventArgs e)
         {
@@ -412,7 +412,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the ColorChanged event of MarkerColorPanelControl object.
+        /// Handles the ColorChanged event of markerColorPanelControl object.
         /// </summary>
         private void markerColorPanelControl_ColorChanged(object sender, EventArgs e)
         {
@@ -425,7 +425,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the ColorChanged event of DataPointColorPanelControl object.
+        /// Handles the ColorChanged event of dataPointColorPanelControl object.
         /// </summary>
         private void dataPointColorPanelControl_ColorChanged(object sender, EventArgs e)
         {
@@ -441,7 +441,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of SeriesMarkerStyleComboBox object.
+        /// Handles the SelectionChanged event of seriesMarkerStyleComboBox object.
         /// </summary>
         private void seriesMarkerStyleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -456,7 +456,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of SeriesMarkerSizeNumericUpDown object.
+        /// Handles the ValueChanged event of seriesMarkerSizeNumericUpDown object.
         /// </summary>
         private void seriesMarkerSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
         {

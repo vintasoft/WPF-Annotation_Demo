@@ -147,6 +147,9 @@ namespace WpfAnnotationDemo
 
         #region UI
 
+        /// <summary>
+        /// Handles the ButtonClick event of addButton object.
+        /// </summary>
         private void addButton_ButtonClick(object sender, EventArgs e)
         {
             if (addSplitButton.IsSubmenuOpen)
@@ -156,7 +159,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddSignatureMenuItem object.
+        /// Handles the Click event of addSignatureMenuItem object.
         /// </summary>
         private void addSignatureMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -168,7 +171,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddInitialsMenuItem object.
+        /// Handles the Click event of addInitialsMenuItem object.
         /// </summary>
         private void addInitialsMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -180,7 +183,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddTitleMenuItem object.
+        /// Handles the Click event of addTitleMenuItem object.
         /// </summary>
         private void addTitleMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -192,7 +195,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddFromFileMenuItem object.
+        /// Handles the Click event of addFromFileMenuItem object.
         /// </summary>
         private void addFromFileMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -209,13 +212,16 @@ namespace WpfAnnotationDemo
             }
         }
 
+        /// <summary>
+        /// Handles the ButtonClick event of removeButton object.
+        /// </summary>
         private void removeButton_ButtonClick(object sender, RoutedEventArgs e)
         {
             _templateManager.RemoveSelected();
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveAllMenuItem object.
+        /// Handles the Click event of removeAllMenuItem object.
         /// </summary>
         private void removeAllMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -223,7 +229,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SaveButton object.
+        /// Handles the Click event of saveButton object.
         /// </summary>
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -257,7 +263,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {

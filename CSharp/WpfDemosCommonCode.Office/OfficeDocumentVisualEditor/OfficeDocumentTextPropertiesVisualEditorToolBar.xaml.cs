@@ -88,7 +88,7 @@ namespace WpfDemosCommonCode.Office
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of IncreaseTextSizeButton object.
+        /// Handles the Click event of increaseTextSizeButton object.
         /// </summary>
         private void increaseTextSizeButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -103,7 +103,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of DecreaseTextSizeButton object.
+        /// Handles the Click event of decreaseTextSizeButton object.
         /// </summary>
         private void decreaseTextSizeButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -119,7 +119,7 @@ namespace WpfDemosCommonCode.Office
 
 
         /// <summary>
-        /// Handles the Click event of ChangeBoldTextButton object.
+        /// Handles the Click event of changeBoldTextButton object.
         /// </summary>
         private void changeBoldTextButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -134,7 +134,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ChangeItalicTextButton object.
+        /// Handles the Click event of changeItalicTextButton object.
         /// </summary>
         private void changeItalicTextButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -149,7 +149,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ChangeUnderlineTextButton object.
+        /// Handles the Click event of changeUnderlineTextButton object.
         /// </summary>
         private void changeUnderlineTextButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -164,7 +164,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of StrikeoutTextButton object.
+        /// Handles the Click event of strikeoutTextButton object.
         /// </summary>
         private void strikeoutTextButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -179,7 +179,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of SubscriptTextButton object.
+        /// Handles the Click event of subscriptTextButton object.
         /// </summary>
         private void subscriptTextButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -194,7 +194,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of SuperscriptTextButton object.
+        /// Handles the Click event of superscriptTextButton object.
         /// </summary>
         private void superscriptTextButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -209,7 +209,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of TextPropertiesButton object.
+        /// Handles the Click event of textPropertiesButton object.
         /// </summary>
         private void textPropertiesButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {

@@ -68,7 +68,7 @@ namespace WpfDemosCommonCode.Office
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of RestartButton object.
+        /// Handles the Click event of restartButton object.
         /// </summary>
         private void restartButton_Click(object sender, RoutedEventArgs e)
         {
@@ -83,7 +83,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ImportButton object.
+        /// Handles the Click event of importButton object.
         /// </summary>
         private void importButton_Click(object sender, RoutedEventArgs e)
         {
@@ -102,7 +102,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -120,7 +120,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of NumerationDefinitionsListBox object.
+        /// Handles the SelectionChanged event of numerationDefinitionsListBox object.
         /// </summary>
         private void numerationDefinitionsListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -129,7 +129,7 @@ namespace WpfDemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {

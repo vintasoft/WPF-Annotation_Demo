@@ -76,7 +76,7 @@ namespace WpfDemosCommonCode.Imaging
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
@@ -84,7 +84,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of cancelButton object.
         /// </summary>
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {

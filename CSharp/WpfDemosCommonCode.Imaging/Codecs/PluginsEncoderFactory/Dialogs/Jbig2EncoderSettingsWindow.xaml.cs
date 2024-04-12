@@ -95,7 +95,7 @@ namespace WpfDemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of UseLossyCheckBox object.
+        /// Handles the Click event of useLossyCheckBox object.
         /// </summary>
         private void useLossyCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -103,7 +103,7 @@ namespace WpfDemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of UseSymbolDictionaryCheckBox object.
+        /// Handles the Click event of useSymbolDictionaryCheckBox object.
         /// </summary>
         private void useSymbolDictionaryCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -147,7 +147,7 @@ namespace WpfDemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, RoutedEventArgs e)
         {
@@ -157,7 +157,7 @@ namespace WpfDemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
