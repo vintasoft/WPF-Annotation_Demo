@@ -431,6 +431,7 @@ namespace WpfDemosCommonCode.Imaging.Codecs.Dialogs
                 mrcHiQualityFrontLayerCheckBox.IsChecked = _mrcCompressionSettings.HiQualityFrontLayer;
                 mrcHiQualityFrontLayerCheckBox.IsEnabled = _mrcCompressionSettings.CreateFrontLayer;
                 mrcUseBackgroundLayerCheckBox.IsChecked = _mrcCompressionSettings.CreateBackgroundLayer;
+                mrcAddPdfLayersCheckBox.IsChecked = _mrcCompressionSettings.AddPdfLayers;
 #if !REMOVE_DOCCLEANUP_PLUGIN
                 mrcImageSegmentationCheckBox.IsChecked = _mrcCompressionSettings.ImageSegmentation != null;
                 mrcImageSegmentationSettingsButton.IsEnabled = _mrcCompressionSettings.ImageSegmentation != null;
@@ -534,6 +535,7 @@ namespace WpfDemosCommonCode.Imaging.Codecs.Dialogs
                 _mrcCompressionSettings.MaskCompressionSettings = mrcMaskCompressionControl.CompressionSettings;
                 _mrcCompressionSettings.FrontLayerCompression = mrcFrontCompressionControl.Compression;
                 _mrcCompressionSettings.FrontLayerCompressionSettings = mrcFrontCompressionControl.CompressionSettings;
+                _mrcCompressionSettings.AddPdfLayers = mrcAddPdfLayersCheckBox.IsChecked.Value;
 #if !REMOVE_DOCCLEANUP_PLUGIN
                 if (mrcImageSegmentationCheckBox.IsChecked.Value)
                 {

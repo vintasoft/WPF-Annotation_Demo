@@ -82,6 +82,7 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
                                     <CheckBox Name="mrcUseBackgroundLayerCheckBox" Grid.Row="0" VerticalAlignment="Center">Use background layer</CheckBox>
@@ -92,6 +93,7 @@
                                     <CheckBox Name="mrcHiQualityMaskCheckBox" Grid.Row="4" VerticalAlignment="Center">High quality mask</CheckBox>
                                     <CheckBox Name="mrcUseFrontCheckBox" Grid.Row="5" VerticalAlignment="Center">Use front layer (text color layer)</CheckBox>
                                     <CheckBox Name="mrcHiQualityFrontLayerCheckBox" Grid.Row="6" Margin="20,0" VerticalAlignment="Center">High quality front layer</CheckBox>
+                                    <CheckBox Name="mrcAddPdfLayersCheckBox" Grid.Row="7" VerticalAlignment="Center">Add PDF layers</CheckBox>
                                 </Grid>
                             </TabItem>
                             <TabItem Name="mrcBackgroundTabPage" Header="Background">

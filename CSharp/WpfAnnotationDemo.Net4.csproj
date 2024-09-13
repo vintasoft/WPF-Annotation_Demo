@@ -88,28 +88,28 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
-    <PackageReference Include="Vintasoft.Imaging" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf.UI" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Wpf.UI" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.Wpf.UI" Version="4.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.Wpf.UI" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.UI" Version="9.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.UI" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Wpf" Version="12.5.3.1" />
-    <PackageReference Include="Vintasoft.Imaging.Wpf.UI" Version="12.5.3.1" />
+    <PackageReference Include="Vintasoft.Imaging" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf.UI" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Wpf.UI" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.Wpf.UI" Version="4.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.Wpf.UI" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.UI" Version="9.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Wpf" Version="12.5.4.1" />
+    <PackageReference Include="Vintasoft.Imaging.Wpf.UI" Version="12.5.4.1" />
     <PackageReference Include="Vintasoft.Shared" Version="4.3.0.1" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
