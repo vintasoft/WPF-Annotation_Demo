@@ -2345,16 +2345,8 @@ namespace WpfAnnotationDemo
         /// </summary>
         private void RotateViewClockwise()
         {
-            if (annotationViewer1.ImageRotationAngle != 270)
-            {
-                annotationViewer1.ImageRotationAngle += 90;
-                thumbnailViewer.ImageRotationAngle += 90;
-            }
-            else
-            {
-                annotationViewer1.ImageRotationAngle = 0;
-                thumbnailViewer.ImageRotationAngle = 0;
-            }
+            annotationViewer1.RotateViewClockwise();
+            thumbnailViewer.RotateViewClockwise();
         }
 
         /// <summary>
@@ -2362,16 +2354,8 @@ namespace WpfAnnotationDemo
         /// </summary>
         private void RotateViewCounterClockwise()
         {
-            if (annotationViewer1.ImageRotationAngle != 0)
-            {
-                annotationViewer1.ImageRotationAngle -= 90;
-                thumbnailViewer.ImageRotationAngle -= 90;
-            }
-            else
-            {
-                annotationViewer1.ImageRotationAngle = 270;
-                thumbnailViewer.ImageRotationAngle = 270;
-            }
+            annotationViewer1.RotateViewCounterClockwise();
+            thumbnailViewer.RotateViewCounterClockwise();
         }
 
         #endregion
