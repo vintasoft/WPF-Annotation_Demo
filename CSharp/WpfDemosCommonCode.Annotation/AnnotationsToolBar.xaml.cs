@@ -1183,19 +1183,41 @@ namespace WpfDemosCommonCode.Annotation
         /// <summary>
         /// Subscribes to the link annotation view events.
         /// </summary>
-        /// <param name="linkView">The link view.</param>
-        private void SubscribeToLinkAnnotationViewEvents(WpfLinkAnnotationView linkView)
+        /// <param name="view">The view.</param>
+        private void SubscribeToLinkAnnotationViewEvents(WpfAnnotationView view)
         {
-            linkView.LinkClicked += new EventHandler<AnnotationLinkClickedEventArgs>(OnLinkClicked);
+            if (view != null)
+            {
+                if (view is WpfLinkAnnotationView)
+                {
+                    ((WpfLinkAnnotationView)view).LinkClicked += new EventHandler<AnnotationLinkClickedEventArgs>(OnLinkClicked);
+                }
+                else if (view is WpfCompositeAnnotationView)
+                {
+                    foreach (WpfAnnotationView child in (WpfCompositeAnnotationView)view)
+                        SubscribeToLinkAnnotationViewEvents(child);
+                }
+            }
         }
 
         /// <summary>
         /// Unsubscribes from the link annotation view events.
         /// </summary>
-        /// <param name="linkView">The link view.</param>
-        private void UnsubscribeFromLinkAnnotationViewEvents(WpfLinkAnnotationView linkView)
+        /// <param name="linkView">The view.</param>
+        private void UnsubscribeFromLinkAnnotationViewEvents(WpfAnnotationView view)
         {
-            linkView.LinkClicked -= OnLinkClicked;
+            if (view != null)
+            {
+                if (view is WpfLinkAnnotationView)
+                {
+                    ((WpfLinkAnnotationView)view).LinkClicked -= OnLinkClicked;
+                }
+                else if (view is WpfCompositeAnnotationView)
+                {
+                    foreach (WpfAnnotationView child in (WpfCompositeAnnotationView)view)
+                        UnsubscribeFromLinkAnnotationViewEvents(child);
+                }
+            }
         }
 
         /// <summary> 
@@ -1385,12 +1407,8 @@ namespace WpfDemosCommonCode.Annotation
                 // for each annotation in previous annotation collection
                 foreach (WpfAnnotationView annotationView in e.OldValue)
                 {
-                    // if annotation is link annotation
-                    if (annotationView is WpfLinkAnnotationView)
-                    {
-                        // unsubscribe from the Link annotation events
-                        UnsubscribeFromLinkAnnotationViewEvents((WpfLinkAnnotationView)annotationView);
-                    }
+                    // unsubscribe from the Link annotation events
+                    UnsubscribeFromLinkAnnotationViewEvents(annotationView);
                 }
             }
 
@@ -1404,12 +1422,8 @@ namespace WpfDemosCommonCode.Annotation
                 // for each annotation in new annotation collection
                 foreach (WpfAnnotationView annotationView in e.NewValue)
                 {
-                    // if annotation is link annotation
-                    if (annotationView is WpfLinkAnnotationView)
-                    {
-                        // subscribe to the Link annotation events
-                        SubscribeToLinkAnnotationViewEvents((WpfLinkAnnotationView)annotationView);
-                    }
+                    // subscribe to the Link annotation events
+                    SubscribeToLinkAnnotationViewEvents(annotationView);
                 }
             }
         }
@@ -1450,15 +1464,8 @@ namespace WpfDemosCommonCode.Annotation
             {
                 foreach (WpfAnnotationView view in _annotationDataToAnnotationView.Values)
                 {
-                    // get annotation view
-                    WpfLinkAnnotationView linkAnnotationView = view as WpfLinkAnnotationView;
-
-                    // if link annotation view found 
-                    if (linkAnnotationView != null)
-                    {
-                        // unsubscribe from the Link annotation events
-                        UnsubscribeFromLinkAnnotationViewEvents(linkAnnotationView);
-                    }
+                    // unsubscribe from the Link annotation events
+                    UnsubscribeFromLinkAnnotationViewEvents(view);
                 }
 
                 _annotationDataToAnnotationView.Clear();
@@ -1472,14 +1479,10 @@ namespace WpfDemosCommonCode.Annotation
                     if (_annotationDataToAnnotationView.ContainsKey(e.OldValue))
                     {
                         // get annotation view
-                        WpfLinkAnnotationView linkAnnotationView = _annotationDataToAnnotationView[e.OldValue] as WpfLinkAnnotationView;
+                        WpfAnnotationView annotationView = _annotationDataToAnnotationView[e.OldValue];
 
-                        // if link annotation view found 
-                        if (linkAnnotationView != null)
-                        {
-                            // unsubscribe from the link annotation events
-                            UnsubscribeFromLinkAnnotationViewEvents(linkAnnotationView);
-                        }
+                        // unsubscribe from the link annotation events
+                        UnsubscribeFromLinkAnnotationViewEvents(annotationView);
 
                         // remove annotation data from dictionary
                         _annotationDataToAnnotationView.Remove(e.OldValue);
@@ -1499,12 +1502,8 @@ namespace WpfDemosCommonCode.Annotation
                     // add annotation data in the annotation dictionary
                     _annotationDataToAnnotationView.Add(e.NewValue, annotationView);
 
-                    // if annotation view is a link annotation
-                    if (annotationView is WpfLinkAnnotationView)
-                    {
-                        // subscribe to the Link annotation events
-                        SubscribeToLinkAnnotationViewEvents((WpfLinkAnnotationView)annotationView);
-                    }
+                    // subscribe to the Link annotation events
+                    SubscribeToLinkAnnotationViewEvents(annotationView);
                 }
             }
         }
