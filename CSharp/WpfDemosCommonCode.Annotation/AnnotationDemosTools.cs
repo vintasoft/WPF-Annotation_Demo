@@ -173,26 +173,39 @@ namespace WpfDemosCommonCode.Annotation
             }
             else
             {
-                WpfGroupAnnotationView groupView = annotationViewer.AnnotationVisualTool.SelectedAnnotations[0] as WpfGroupAnnotationView;
-                if (groupView != null)
+                WpfGroupAnnotationView groupAnnotationView = annotationViewer.AnnotationVisualTool.SelectedAnnotations[0] as WpfGroupAnnotationView;
+                if (groupAnnotationView != null)
                 {
+                    // begin the composite undo action
                     undoManager.BeginCompositeAction("Ungroup annotations");
 
                     try
                     {
-                        // ungroup annotations
+                        // clear selected annotations
                         selectedAnnotations.Clear();
-                        GroupAnnotationData data = (GroupAnnotationData)groupView.Data;
-                        annotationViewer.AnnotationDataCollection.Remove(data);
-                        annotationViewer.AnnotationDataCollection.AddRange(data.Items.ToArray());
+
+                        // get annotation data
+                        GroupAnnotationData groupAnnotationData = (GroupAnnotationData)groupAnnotationView.Data;
+                        // add group annotation items to annotation data collection
+                        annotationViewer.AnnotationDataCollection.AddRange(groupAnnotationData.Items.ToArray());
+                        // remove group annotation from annotation data collection
+                        annotationViewer.AnnotationDataCollection.Remove(groupAnnotationData);
+                        // if the annotation viewer allows multiple selection of annotations
                         if (annotationViewer.AnnotationMultiSelect)
-                            foreach (AnnotationData itemData in data.Items)
+                        {
+                            // for each annotation data in group annotation items
+                            foreach (AnnotationData itemData in groupAnnotationData.Items)
                                 selectedAnnotations.Add(annotationViewer.AnnotationViewCollection.FindView(itemData));
-                        data.Items.Clear();
-                        data.Dispose();
+                        }
+
+                        // remove annotations from group annotation
+                        groupAnnotationData.Items.Clear();
+                        // dispose group annotation
+                        groupAnnotationData.Dispose();
                     }
                     finally
                     {
+                        // end the composite undo action
                         undoManager.EndCompositeAction();
                     }
                 }
