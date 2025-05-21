@@ -118,7 +118,7 @@ namespace WpfDemosCommonCode.Office
         {
             textJustificationComboBox.SelectedItem = _paragraphProperties.Justification;
 
-            fillColorPanel.Color = WpfObjectConverter.CreateWindowsColor(_paragraphProperties.FillColor.Value);
+            fillColorPanel.Color = WpfObjectConverter.CreateWindowsColor(_paragraphProperties.FillColor ?? System.Drawing.Color.Empty);
 
             firstLineIndentationComboBox.Text = DemosTools.ToString(_paragraphProperties.FirstLineIndentation);
 
@@ -132,13 +132,13 @@ namespace WpfDemosCommonCode.Office
 
             spacingAfterComboBox.Text = DemosTools.ToString(_paragraphProperties.SpacingAfterParagraph);
 
-            keepLinesCheckBox.IsChecked = _paragraphProperties.KeepLines.Value;
+            keepLinesCheckBox.IsChecked = _paragraphProperties.KeepLines ?? false;
 
-            keepNextCheckBox.IsChecked = _paragraphProperties.KeepNext.Value;
+            keepNextCheckBox.IsChecked = _paragraphProperties.KeepNext ?? false;
 
-            pageBreakBeforeCheckBox.IsChecked = _paragraphProperties.PageBreakBefore.Value;
+            pageBreakBeforeCheckBox.IsChecked = _paragraphProperties.PageBreakBefore ?? false;
 
-            widowControlCheckBox.IsChecked = _paragraphProperties.WidowControl.Value;
+            widowControlCheckBox.IsChecked = _paragraphProperties.WidowControl ?? true;
         }
 
         /// <summary>
@@ -149,7 +149,11 @@ namespace WpfDemosCommonCode.Office
         {
             _paragraphProperties.Justification = (OpenXmlParagraphJustification)textJustificationComboBox.SelectedItem;
 
-            _paragraphProperties.FillColor = WpfObjectConverter.CreateDrawingColor(fillColorPanel.Color);
+            System.Drawing.Color fillColor = WpfObjectConverter.CreateDrawingColor(fillColorPanel.Color);
+            if (fillColor.IsEmpty)
+                _paragraphProperties.FillColor = null;
+            else
+                _paragraphProperties.FillColor = fillColor;
 
             float value;
 

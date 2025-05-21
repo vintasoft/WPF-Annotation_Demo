@@ -90,10 +90,10 @@ namespace WpfAnnotationDemo
             _annotationFont = new AnnotationFont(
                 (string)fontFamilyNameComboBox.SelectedItem,
                 (float)fontSizeNumericUpDown.Value,
-                isBoldCheckBox.IsChecked == true,
-                isItalicCheckBox.IsChecked == true,
-                isStrikeoutCheckBox.IsChecked == true,
-                isUnderlineCheckBox.IsChecked == true,
+                isBoldCheckBox.IsChecked.Value == true,
+                isItalicCheckBox.IsChecked.Value == true,
+                isStrikeoutCheckBox.IsChecked.Value == true,
+                isUnderlineCheckBox.IsChecked.Value == true,
                 _annotationFont.Unit);
 
             _annotationFontColor = fontColorPanelControl.Color;

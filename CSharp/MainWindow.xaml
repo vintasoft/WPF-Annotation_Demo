@@ -286,6 +286,8 @@
                         <MenuItem Header="None" Name="annotationInteractionModeNoneMenuItem" Click="annotationInteractionModeNoneMenuItem_Click"/>
                         <MenuItem Header="View" Name="annotationInteractionModeViewMenuItem" Click="annotationInteractionModeViewMenuItem_Click" />
                         <MenuItem Header="Author" Name="annotationInteractionModeAuthorMenuItem" IsChecked="True" Click="annotationInteractionModeAuthorMenuItem_Click" />
+                        <MenuItem Header="Annotation eraser" Name="annotationInteractionModeAnnotationEraserMenuItem" IsChecked="False" Click="annotationInteractionModeAnnotationEraserMenuItem_Click" />
+                        <MenuItem Header="Pencil eraser" Name="annotationInteractionModePencilEraserMenuItem" IsChecked="False" Click="annotationInteractionModePencilEraserMenuItem_Click" />
                     </MenuItem>
                     <MenuItem Header="Transformation Mode" Name="transformationModeMenuItem" >
                         <MenuItem Header="Rectangular" Name="transformationModeRectangularMenuItem" Click="transformationModeRectangularMenuItem_Click"/>
@@ -312,7 +314,7 @@
                         <MenuItem Header="Line" Name="lineMenuItem" Click="addAnnotationMenuItem_Click"/>
                         <MenuItem Header="Lines" Name="linesMenuItem" Click="addAnnotationMenuItem_Click"/>
                         <MenuItem Header="Lines with interpolation" Name="linesWithInterpolationMenuItem" Click="addAnnotationMenuItem_Click"/>
-                        <MenuItem Header="Freehand lines" Name="freehandLinesMenuItem" Click="addAnnotationMenuItem_Click"/>
+                        <MenuItem Header="Freehand lines" Name="incLinesMenuItem" Click="addAnnotationMenuItem_Click"/>
                         <MenuItem Header="Polygon" Name="polygonMenuItem" Click="addAnnotationMenuItem_Click"/>
                         <MenuItem Header="Polygon with interpolation" Name="polygonWithInterpolationMenuItem" Click="addAnnotationMenuItem_Click"/>
                         <MenuItem Header="Freehand polygon" Name="freehandPolygonMenuItem" Click="addAnnotationMenuItem_Click"/>
@@ -485,6 +487,8 @@
                     <ComboBoxItem>None</ComboBoxItem>
                     <ComboBoxItem>View</ComboBoxItem>
                     <ComboBoxItem>Author</ComboBoxItem>
+                    <ComboBoxItem>Annotation eraser</ComboBoxItem>
+                    <ComboBoxItem>Pencil eraser</ComboBoxItem>
                 </ComboBox>
             </ToolBar>
         </ToolBarTray>

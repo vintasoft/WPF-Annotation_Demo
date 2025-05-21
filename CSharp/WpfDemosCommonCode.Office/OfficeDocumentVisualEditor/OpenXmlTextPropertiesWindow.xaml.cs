@@ -101,7 +101,6 @@ namespace WpfDemosCommonCode.Office
 
 
 
-
         #region Properties
 
         OpenXmlTextProperties _textProperties;
@@ -212,11 +211,11 @@ namespace WpfDemosCommonCode.Office
 
             fontSizeComboBox.Text = DemosTools.ToString(_textProperties.FontSize);
 
-            if (_textProperties.IsBold.Value && _textProperties.IsItalic.Value)
+            if (_textProperties.IsBold == true && _textProperties.IsItalic == true)
                 fontStyleListBox.SelectedIndex = 3;
-            else if (_textProperties.IsItalic.Value)
+            else if (_textProperties.IsItalic == true)
                 fontStyleListBox.SelectedIndex = 2;
-            else if (_textProperties.IsBold.Value)
+            else if (_textProperties.IsBold == true)
                 fontStyleListBox.SelectedIndex = 1;
             else
                 fontStyleListBox.SelectedIndex = 0;
@@ -226,16 +225,16 @@ namespace WpfDemosCommonCode.Office
             else if (_textProperties.VerticalAlignment == OpenXmlTextVerticalPositionType.Superscript)
                 superscriptCheckBox.IsChecked = true;
 
-            if (_textProperties.IsStrike.Value)
+            if (_textProperties.IsStrike == true)
                 strikeoutCheckBox.IsChecked = true;
-            else if (_textProperties.IsDoubleStrike.Value)
+            else if (_textProperties.IsDoubleStrike == true)
                 doubleStrikeoutCheckBox.IsChecked = true;
 
-            fontColorPanel.Color = WpfObjectConverter.CreateWindowsColor(_textProperties.Color.Value);
+            fontColorPanel.Color = WpfObjectConverter.CreateWindowsColor(_textProperties.Color ?? System.Drawing.Color.Empty);
 
             underlineComboBox.SelectedItem = _textProperties.Underline;
 
-            underlineColorPanel.Color = WpfObjectConverter.CreateWindowsColor(_textProperties.UnderlineColor.Value);
+            underlineColorPanel.Color = WpfObjectConverter.CreateWindowsColor(_textProperties.UnderlineColor ?? System.Drawing.Color.Empty);
 
             textHighlightComboBox.SelectedItem = _textProperties.Highlight;
 
@@ -279,22 +278,30 @@ namespace WpfDemosCommonCode.Office
                         break;
                 }
 
-                if (subscriptCheckBox.IsChecked.Value == true)
+                if (subscriptCheckBox.IsChecked == true)
                     _textProperties.VerticalAlignment = OpenXmlTextVerticalPositionType.Subscript;
-                else if (superscriptCheckBox.IsChecked.Value == true)
+                else if (superscriptCheckBox.IsChecked == true)
                     _textProperties.VerticalAlignment = OpenXmlTextVerticalPositionType.Superscript;
                 else
                     _textProperties.VerticalAlignment = OpenXmlTextVerticalPositionType.Baseline;
 
-                _textProperties.IsStrike = strikeoutCheckBox.IsChecked.Value;
+                _textProperties.IsStrike = strikeoutCheckBox.IsChecked;
 
-                _textProperties.IsDoubleStrike = doubleStrikeoutCheckBox.IsChecked.Value;
+                _textProperties.IsDoubleStrike = doubleStrikeoutCheckBox.IsChecked;
 
-                _textProperties.Color = WpfObjectConverter.CreateDrawingColor(fontColorPanel.Color);
+                System.Drawing.Color color = WpfObjectConverter.CreateDrawingColor(fontColorPanel.Color);
+                if (color.IsEmpty)
+                    _textProperties.Color = null;
+                else
+                    _textProperties.Color = color;
 
                 _textProperties.Underline = (OpenXmlTextUnderlineType)underlineComboBox.SelectedItem;
 
-                _textProperties.UnderlineColor = WpfObjectConverter.CreateDrawingColor(underlineColorPanel.Color);
+                System.Drawing.Color underlineColor = WpfObjectConverter.CreateDrawingColor(underlineColorPanel.Color);
+                if (underlineColor.IsEmpty)
+                    _textProperties.UnderlineColor = null;
+                else
+                    _textProperties.UnderlineColor = underlineColor;
 
                 _textProperties.Highlight = (OpenXmlTextHighlightType)textHighlightComboBox.SelectedItem;
 

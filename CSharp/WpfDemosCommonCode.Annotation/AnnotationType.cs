@@ -73,7 +73,7 @@ namespace WpfDemosCommonCode.Annotation
         /// The referenced image annotation.
         /// </summary>
         ReferencedImage,
-
+        
         /// <summary>
         /// The text annotation.
         /// </summary>
@@ -218,6 +218,11 @@ namespace WpfDemosCommonCode.Annotation
         /// The arc annotation.
         /// </summary>
         Arc,
+
+        /// <summary>
+        /// The ink annotation.
+        /// </summary>
+        Ink,
 
         /// <summary>
         /// The arc annotation with arrow.

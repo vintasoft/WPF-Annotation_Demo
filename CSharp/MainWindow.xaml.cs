@@ -1289,7 +1289,7 @@ namespace WpfAnnotationDemo
         #region Interaction Mode
 
         /// <summary>
-        /// Changes the annotation interaction mode to None.
+        /// Changes the annotation interaction mode to the "None" mode.
         /// </summary>
         private void annotationInteractionModeNoneMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -1297,7 +1297,7 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Changes the annotation interaction mode to View.
+        /// Changes the annotation interaction mode to the "View" mode.
         /// </summary>
         private void annotationInteractionModeViewMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -1305,11 +1305,27 @@ namespace WpfAnnotationDemo
         }
 
         /// <summary>
-        /// Changes the annotation interaction mode to Author.
+        /// Changes the annotation interaction mode to the "Author" mode.
         /// </summary>
         private void annotationInteractionModeAuthorMenuItem_Click(object sender, RoutedEventArgs e)
         {
             annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.Author;
+        }
+
+        /// <summary>
+        /// Changes the annotation interaction mode to the "Annotation eraser" mode.
+        /// </summary>
+        private void annotationInteractionModeAnnotationEraserMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.AnnotationEraser;
+        }
+
+        /// <summary>
+        /// Changes the annotation interaction mode to the "Pencil eraser" mode.
+        /// </summary>
+        private void annotationInteractionModePencilEraserMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.PencilEraser;
         }
 
         #endregion
@@ -2230,6 +2246,8 @@ namespace WpfAnnotationDemo
             annotationInteractionModeNoneMenuItem.IsChecked = false;
             annotationInteractionModeViewMenuItem.IsChecked = false;
             annotationInteractionModeAuthorMenuItem.IsChecked = false;
+            annotationInteractionModeAnnotationEraserMenuItem.IsChecked = false;
+            annotationInteractionModePencilEraserMenuItem.IsChecked = false;
 
             AnnotationInteractionMode annotationInteractionMode = e.NewValue;
             switch (annotationInteractionMode)
@@ -2247,6 +2265,16 @@ namespace WpfAnnotationDemo
                 case AnnotationInteractionMode.Author:
                     annotationInteractionModeAuthorMenuItem.IsChecked = true;
                     annotationInteractionModeToolStripComboBox.SelectedIndex = 2;
+                    break;
+
+                case AnnotationInteractionMode.AnnotationEraser:
+                    annotationInteractionModeAnnotationEraserMenuItem.IsChecked = true;
+                    annotationInteractionModeToolStripComboBox.SelectedIndex = 3;
+                    break;
+
+                case AnnotationInteractionMode.PencilEraser:
+                    annotationInteractionModePencilEraserMenuItem.IsChecked = true;
+                    annotationInteractionModeToolStripComboBox.SelectedIndex = 4;
                     break;
             }
 
@@ -2384,7 +2412,7 @@ namespace WpfAnnotationDemo
             _menuItemToAnnotationType.Add(lineMenuItem, AnnotationType.Line);
             _menuItemToAnnotationType.Add(linesMenuItem, AnnotationType.Lines);
             _menuItemToAnnotationType.Add(linesWithInterpolationMenuItem, AnnotationType.LinesWithInterpolation);
-            _menuItemToAnnotationType.Add(freehandLinesMenuItem, AnnotationType.FreehandLines);
+            _menuItemToAnnotationType.Add(incLinesMenuItem, AnnotationType.Ink);
             _menuItemToAnnotationType.Add(polygonMenuItem, AnnotationType.Polygon);
             _menuItemToAnnotationType.Add(polygonWithInterpolationMenuItem, AnnotationType.PolygonWithInterpolation);
             _menuItemToAnnotationType.Add(freehandPolygonMenuItem, AnnotationType.FreehandPolygon);
@@ -2825,6 +2853,14 @@ namespace WpfAnnotationDemo
                 case 2:
                     annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.Author;
                     break;
+
+                case 3:
+                    annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.AnnotationEraser;
+                    break;
+
+                case 4:
+                    annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.PencilEraser;
+                    break;
             }
 
             EnableUndoRedoMenu();
@@ -2994,7 +3030,7 @@ namespace WpfAnnotationDemo
         private void FocusedAnnotationData_PropertyChanged(
             object sender,
             ObjectPropertyChangedEventArgs e)
-        {            
+        {
             if (e.PropertyName == "Comment")
             {
                 UpdateUI();
@@ -3340,6 +3376,27 @@ namespace WpfAnnotationDemo
                     }
 
                     return jpegEncoder;
+
+#if !REMOVE_JPEG2000_PLUGIN
+                case ".JP2":
+                case ".J2K":
+                case ".J2C":
+                case ".JPC":
+                    Jpeg2000Encoder jpeg2000Encoder = new Jpeg2000Encoder();
+
+                    if (showSettingsDialog)
+                    {
+                        jpeg2000Encoder.Settings.AnnotationsFormat = AnnotationsFormat.VintasoftBinary;
+
+                        Jpeg2000EncoderSettingsWindow jpeg2000EncoderSettingsDlg = new Jpeg2000EncoderSettingsWindow();
+                        jpeg2000EncoderSettingsDlg.EditAnnotationSettings = true;
+                        jpeg2000EncoderSettingsDlg.EncoderSettings = jpeg2000Encoder.Settings;
+                        if (jpeg2000EncoderSettingsDlg.ShowDialog() == false)
+                            throw new Exception("Saving canceled.");
+                    }
+
+                    return jpeg2000Encoder;
+#endif
 
                 case ".PNG":
                     PngEncoder pngEncoder = new PngEncoder();

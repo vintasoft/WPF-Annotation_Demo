@@ -244,7 +244,7 @@ namespace WpfDemosCommonCode.Pdf.Security
                         }
 
                         // use certificate chain from signature to build and verify certificate chain (no revocation check)
-                        bool useSigningCertificateChainToBuildChain = useSigningCertificateChainToBuildChainCheckBox.IsChecked == true;
+                        bool useSigningCertificateChainToBuildChain = useSigningCertificateChainToBuildChainCheckBox.IsChecked.Value == true;
 
                         // build and verify signing certificate chain
                         certificateVerifyResult = BuildX509Chain(signature.SigningCertificateChain, useSigningCertificateChainToBuildChain, out certChain);

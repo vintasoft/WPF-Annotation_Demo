@@ -9,8 +9,6 @@ using Vintasoft.Imaging.Annotation.Wpf.UI;
 using Vintasoft.Imaging.Annotation.Wpf.UI.VisualTools.UserInteraction;
 
 using Vintasoft.Imaging.Wpf;
-
-using Vintasoft.Imaging.Wpf.UI;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
 
@@ -90,12 +88,14 @@ namespace WpfDemosCommonCode.Annotation
         #region PUBLIC
 
         /// <summary>
-        /// Indicates whether the specified point is contained within the annotation.
+        /// Returns a value indicating whether the specified point is contained within the annotation.
         /// </summary>
         /// <param name="point">Point in image space.</param>
+        /// <param name="ignoreContainmentCheckDistance">A value indicating whether the point must be checked on the object only
+        /// (ignore the "containment" region around object that is used for object selection).</param>
         /// <returns><b>true</b> if the specified point is contained within the annotation;
         /// otherwise, <b>false</b>.</returns>
-        public override bool IsPointOnFigure(Point point)
+        public override bool IsPointOnFigure(Point point, bool ignoreContainmentCheckDistance)
         {
             Matrix m = GetTransformFromContentToImageSpace();
             m.Invert();

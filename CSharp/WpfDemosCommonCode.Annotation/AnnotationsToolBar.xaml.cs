@@ -496,7 +496,6 @@ namespace WpfDemosCommonCode.Annotation
 
                 // Referenced Image
                 new AnnotationButtonInfo(AnnotationType.ReferencedImage),
-
                  
                 // -----
                 new SeparatorButtonInfo(),
@@ -557,8 +556,8 @@ namespace WpfDemosCommonCode.Annotation
                     // Lines with Interpolation -> Cloud Lines with Interpolation
                     new AnnotationButtonInfo(AnnotationType.CloudLinesWithInterpolation)),
 
-                // Freehand Lines
-                new AnnotationButtonInfo(AnnotationType.FreehandLines),
+                // Inc
+                new AnnotationButtonInfo(AnnotationType.Ink),
 
                 // Polygon
                 new AnnotationButtonInfo(AnnotationType.Polygon,
@@ -948,7 +947,7 @@ namespace WpfDemosCommonCode.Annotation
                     ReferencedImageAnnotationData referencedImage = new ReferencedImageAnnotationData();
                     referencedImage.Filename = _embeddedOrReferencedImageFileName;
                     data = referencedImage;
-                    break;
+                    break;              
 
                 case AnnotationType.EmbeddedImage:
                     if (string.IsNullOrEmpty(_embeddedOrReferencedImageFileName))
@@ -1166,6 +1165,10 @@ namespace WpfDemosCommonCode.Annotation
                     data = new ArcAnnotationData();
                     data.Outline.StartCap.Style = LineCapStyles.Arrow;
                     data.Outline.EndCap.Style = LineCapStyles.Arrow;
+                    break;
+
+                case AnnotationType.Ink:
+                    data = new InkAnnotationData();
                     break;
 
                 default:
