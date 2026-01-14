@@ -1,4 +1,4 @@
-# VintaSoft WPF Annotation Demo
+﻿# VintaSoft WPF Annotation Demo
 
 This C# project uses <a href="https://www.vintasoft.com/vsimaging-dotnet-index.html">VintaSoft Imaging .NET SDK</a> and demonstrates how to annotate images and documents in WPF:
 * Interactively add 20+ predefined annotation types onto JPEG, PNG, TIFF image or PDF page.
@@ -23,9 +23,9 @@ This C# project uses <a href="https://www.vintasoft.com/vsimaging-dotnet-index.h
    Vintasoft.Imaging.ImagingGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
    ```
 
-3. Build the project ("WpfAnnotationDemo.Net8.csproj" file) in Visual Studio or using .NET CLI:
+3. Build the project ("WpfAnnotationDemo.Net10.csproj" file) in Visual Studio or using .NET CLI:
    ```
-   dotnet build WpfAnnotationDemo.Net8.csproj
+   dotnet build WpfAnnotationDemo.Net10.csproj
    ```
 
 4. Run compiled application and try to annotate images and documents.
