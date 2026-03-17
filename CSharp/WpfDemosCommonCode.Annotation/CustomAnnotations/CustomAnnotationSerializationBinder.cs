@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
 using Vintasoft.Imaging.Annotation.Formatters;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     public class CustomAnnotationSerializationBinder : AnnotationSerializationBinder
     {
@@ -34,12 +34,12 @@ namespace WpfDemosCommonCode.Annotation
                 typeName = "Wpf" + typeName;
 
             if (typeName == "WpfAnnotationDemo.TriangleAnnotationData")
-                typeName = "WpfDemosCommonCode.Annotation.TriangleAnnotationData";
+                typeName = "WpfCommonCode.Annotation.TriangleAnnotationData";
 
             if (typeName == "WpfAnnotationDemo.MarkAnnotationData")
-                typeName = "WpfDemosCommonCode.Annotation.MarkAnnotationData";
+                typeName = "WpfCommonCode.Annotation.MarkAnnotationData";
 
-            if (typeName.StartsWith("DemosCommonCode"))
+            if (typeName.StartsWith("CommonCode"))
                 typeName = "Wpf" + typeName;            
 
             return base.BindToType(assemblyName, typeName);

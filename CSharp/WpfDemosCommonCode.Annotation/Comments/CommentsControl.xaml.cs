@@ -12,7 +12,7 @@ using Vintasoft.Imaging.Annotation.Wpf.UI.VisualTools;
 #endif
 using Vintasoft.Imaging.Wpf.UI;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents a user control that displays comments of focused page of image viewer.

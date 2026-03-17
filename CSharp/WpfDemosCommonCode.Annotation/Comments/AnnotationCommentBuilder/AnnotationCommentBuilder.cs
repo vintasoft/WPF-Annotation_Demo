@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 
 using Vintasoft.Imaging;
@@ -10,7 +10,7 @@ using Vintasoft.Imaging.Utils;
 using Vintasoft.Imaging.Wpf;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Contains algorithms, which allow to create annotation with comments.

@@ -6,7 +6,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.Annotation.Wpf.UI;
 
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Class that handles all events of annotation and annotation collection.

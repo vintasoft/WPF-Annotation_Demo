@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using Vintasoft.Imaging.Undo;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that shows an action list of undo manager.

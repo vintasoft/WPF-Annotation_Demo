@@ -9,7 +9,7 @@ using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.Wpf.UI;
 using Vintasoft.Imaging.Wpf.UI;
 
-using WpfDemosCommonCode;
+using WpfCommonCode;
 
 namespace WpfAnnotationDemo
 {

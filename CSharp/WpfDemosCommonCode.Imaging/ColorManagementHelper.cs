@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 
 using Vintasoft.Imaging.Codecs.Decoders;
@@ -7,7 +7,7 @@ using Vintasoft.Imaging.ColorManagement.Icc;
 using Vintasoft.Imaging.Wpf.UI;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Help for initialize color management settings.

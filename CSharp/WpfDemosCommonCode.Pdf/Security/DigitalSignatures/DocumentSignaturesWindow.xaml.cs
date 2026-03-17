@@ -17,7 +17,7 @@ using Vintasoft.Imaging.Pdf.Tree.DigitalSignatures;
 using Vintasoft.Imaging.Pdf.Tree.InteractiveForms;
 
 
-namespace WpfDemosCommonCode.Pdf.Security
+namespace WpfCommonCode.Pdf.Security
 {
     /// <summary>
     /// Form that shows digital signatures of PDF document.

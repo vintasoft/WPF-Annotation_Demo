@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfDemosCommonCode.Pdf.Security.CreateSignatureFieldWindow"
+﻿<Window x:Class="WpfCommonCode.Pdf.Security.CreateSignatureFieldWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Create Digital Signature" Height="570" Width="355" MinWidth="353" MinHeight="570" MaxHeight="570" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">

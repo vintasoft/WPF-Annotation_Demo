@@ -1,7 +1,7 @@
-﻿<UserControl x:Class="WpfDemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl"
+﻿<UserControl x:Class="WpfCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    xmlns:CustomControls="clr-namespace:WpfCommonCode.CustomControls"
     Height="155" Width="320">
     <GroupBox Header="Compression of image resource">
         <Grid>

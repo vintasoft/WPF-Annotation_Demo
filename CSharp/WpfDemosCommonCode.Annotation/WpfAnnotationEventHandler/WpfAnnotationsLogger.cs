@@ -14,7 +14,7 @@ using Vintasoft.Imaging.Wpf.Utils;
 using Vintasoft.Imaging.Wpf;
 
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     public class WpfAnnotationsLogger : WpfAnnotationsEventsHandler
     {

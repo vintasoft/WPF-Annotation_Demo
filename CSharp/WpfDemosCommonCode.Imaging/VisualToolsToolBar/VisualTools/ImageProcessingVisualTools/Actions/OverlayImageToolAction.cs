@@ -7,9 +7,9 @@ using System.Windows.Media.Imaging;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Wpf.UI.VisualTools;
 
-using WpfDemosCommonCode.Imaging.Codecs;
+using WpfCommonCode.Imaging.Codecs;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Stores information about a <see cref="WpfOverlayImageTool"/> action.

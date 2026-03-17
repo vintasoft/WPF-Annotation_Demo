@@ -6,7 +6,7 @@ using Vintasoft.Imaging.Annotation.Wpf.UI.VisualTools;
 using Vintasoft.Imaging.Undo;
 
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
 
     /// <summary>

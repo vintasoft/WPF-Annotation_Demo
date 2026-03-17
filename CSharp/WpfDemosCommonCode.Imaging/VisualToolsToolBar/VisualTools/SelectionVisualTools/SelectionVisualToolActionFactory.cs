@@ -3,7 +3,7 @@
 using Vintasoft.Imaging.Wpf.UI.VisualTools;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Creates visual tool actions, which allow to enable/disable visual tools (<see cref="WpfRectangularSelectionTool"/> and <see cref="WpfCustomSelectionTool"/>)

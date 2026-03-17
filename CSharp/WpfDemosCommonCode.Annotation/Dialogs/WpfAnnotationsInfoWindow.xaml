@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfDemosCommonCode.Annotation.WpfAnnotationsInfoWindow"
+﻿<Window x:Class="WpfCommonCode.Annotation.WpfAnnotationsInfoWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Information about annotations" Height="382" Width="701" WindowStartupLocation="CenterScreen">

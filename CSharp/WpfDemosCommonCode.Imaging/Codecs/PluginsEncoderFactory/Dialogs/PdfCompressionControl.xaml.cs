@@ -11,7 +11,7 @@ using Vintasoft.Imaging.Codecs.Encoders;
 using Vintasoft.Imaging.ImageProcessing;
 
 
-namespace WpfDemosCommonCode.Imaging.Codecs.Dialogs
+namespace WpfCommonCode.Imaging.Codecs.Dialogs
 {
     /// <summary>
     /// Represents the control for editing the PDF compression settings.

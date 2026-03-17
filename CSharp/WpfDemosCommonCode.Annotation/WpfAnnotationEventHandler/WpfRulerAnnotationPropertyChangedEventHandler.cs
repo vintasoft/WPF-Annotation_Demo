@@ -1,10 +1,10 @@
-using System.Text;
+﻿using System.Text;
 
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Annotation.Wpf.UI;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Class for handling of changes of IRuler.UnitOfMeasure property.

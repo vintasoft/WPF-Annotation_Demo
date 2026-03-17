@@ -10,7 +10,7 @@ using System.Windows.Media;
 using Vintasoft.Imaging.Utils;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A form that executes a method in a background thread and shows the execution progress.

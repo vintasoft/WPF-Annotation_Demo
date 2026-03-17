@@ -17,9 +17,9 @@ using Vintasoft.Imaging.Pdf;
 using Vintasoft.Imaging.Pdf.Tree.DigitalSignatures;
 using Vintasoft.Imaging.Pdf.Tree.InteractiveForms;
 
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode.Imaging;
 
-namespace WpfDemosCommonCode.Pdf.Security
+namespace WpfCommonCode.Pdf.Security
 {
     /// <summary>
     /// Form that allows to create new signature field or use existing signature field AND

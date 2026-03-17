@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.IO;
 
-namespace WpfDemosCommonCode.Pdf.Security
+namespace WpfCommonCode.Pdf.Security
 {
     /// <summary>
     /// Form that allows to input password for opening the certificate with private key.

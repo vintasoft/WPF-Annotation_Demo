@@ -8,7 +8,7 @@ using System.Windows;
 using Vintasoft.Imaging.Office.OpenXml.Editor;
 using Vintasoft.Imaging.Wpf;
 
-namespace WpfDemosCommonCode.Office
+namespace WpfCommonCode.Office
 {
     /// <summary>
     /// Interaction logic for OpenXmlTextPropertiesWindow.xaml

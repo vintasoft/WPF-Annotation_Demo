@@ -1,4 +1,4 @@
-﻿<ToolBar x:Class="WpfDemosCommonCode.Annotation.AnnotationsToolBar"
+﻿<ToolBar x:Class="WpfCommonCode.Annotation.AnnotationsToolBar"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Height="31"

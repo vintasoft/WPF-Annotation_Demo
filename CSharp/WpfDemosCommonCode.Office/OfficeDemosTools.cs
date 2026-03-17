@@ -4,7 +4,7 @@ using System.Windows;
 
 using Microsoft.Win32;
 
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode.Imaging;
 
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
@@ -14,7 +14,7 @@ using Vintasoft.Imaging.Office.OpenXml.Editor;
 #endif
 using Vintasoft.Imaging.UI;
 
-namespace WpfDemosCommonCode.Office
+namespace WpfCommonCode.Office
 {
     /// <summary>
     /// Contains collection of helper-algorithms for demo applications, which use VintaSoft Office .NET Plugin.

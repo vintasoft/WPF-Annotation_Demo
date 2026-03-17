@@ -1,10 +1,10 @@
-using System.Windows;
+﻿using System.Windows;
 
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Interaction controller that builds a mark annotation.

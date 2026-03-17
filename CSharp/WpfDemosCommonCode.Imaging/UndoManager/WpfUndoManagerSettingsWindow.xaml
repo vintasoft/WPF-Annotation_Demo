@@ -1,6 +1,6 @@
-﻿<Window x:Class="WpfDemosCommonCode.Imaging.WpfUndoManagerSettingsWindow"
+﻿<Window x:Class="WpfCommonCode.Imaging.WpfUndoManagerSettingsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    xmlns:CustomControls="clr-namespace:WpfCommonCode.CustomControls"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Undo Manager Settings" 
     ResizeMode="NoResize" 

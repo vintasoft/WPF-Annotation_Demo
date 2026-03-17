@@ -1,10 +1,10 @@
-using System.Text;
+﻿using System.Text;
 using System.Windows;
 
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.ImageProcessing;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// A window that allows to rotate image with annotations.

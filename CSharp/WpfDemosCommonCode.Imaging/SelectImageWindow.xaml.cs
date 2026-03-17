@@ -3,7 +3,7 @@
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Wpf.UI;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A form that allows to select image of image collection.

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAnnotationDemo" 
         xmlns:ui="clr-namespace:Vintasoft.Imaging.Annotation.Wpf.UI;assembly=Vintasoft.Imaging.Annotation.Wpf.UI"
-        xmlns:vsue="clr-namespace:Vintasoft.Imaging.Wpf.UI.UIElements;assembly=Vintasoft.Imaging.Wpf.UI" xmlns:customcontrols="clr-namespace:WpfDemosCommonCode.CustomControls"
+        xmlns:vsue="clr-namespace:Vintasoft.Imaging.Wpf.UI.UIElements;assembly=Vintasoft.Imaging.Wpf.UI" xmlns:customcontrols="clr-namespace:WpfCommonCode.CustomControls"
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="Font Properties" Height="260" Width="299">

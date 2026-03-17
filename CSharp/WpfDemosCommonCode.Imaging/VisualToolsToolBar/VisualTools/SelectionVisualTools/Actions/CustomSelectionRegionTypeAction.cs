@@ -3,7 +3,7 @@
 using Vintasoft.Imaging.Wpf.UI.VisualTools;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Stores information about a <see cref="WpfSelectionRegionBase"/> action.

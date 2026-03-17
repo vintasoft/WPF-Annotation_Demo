@@ -12,7 +12,7 @@ using Vintasoft.Imaging.Office.OpenXml.Wpf.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.Text;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
-namespace WpfDemosCommonCode.Office
+namespace WpfCommonCode.Office
 {
     /// <summary>
     /// Interaction logic for OfficeDocumentFontPropertiesVisualEditorToolBar.xaml

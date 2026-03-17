@@ -1,4 +1,4 @@
-﻿namespace WpfDemosCommonCode
+﻿namespace WpfCommonCode
 {
     /// <summary>
     /// Loads the Vintasoft.Imaging.Dicom assembly.

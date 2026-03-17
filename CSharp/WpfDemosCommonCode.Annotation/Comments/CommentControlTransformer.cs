@@ -9,7 +9,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.Wpf;
 using Vintasoft.Imaging.Wpf.UI;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents an interaction transformer that transforms <see cref="CommentControl"/>.

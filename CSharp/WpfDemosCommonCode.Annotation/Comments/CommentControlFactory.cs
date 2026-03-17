@@ -2,7 +2,7 @@
 using Vintasoft.Imaging.Annotation.Comments;
 using Vintasoft.Imaging.Annotation.UI.Comments;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents a factory that allows to create comment controls.

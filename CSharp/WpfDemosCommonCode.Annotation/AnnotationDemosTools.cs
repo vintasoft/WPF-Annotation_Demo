@@ -23,7 +23,7 @@ using Vintasoft.Imaging.Pdf.Tree.Annotations;
 using Vintasoft.Imaging.Undo;
 using Vintasoft.Imaging.Wpf;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Contains collection of helper-algorithms for demo applications with annotations.

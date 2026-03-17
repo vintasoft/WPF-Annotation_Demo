@@ -1,10 +1,10 @@
-﻿<Window x:Class="WpfDemosCommonCode.Office.OpenXmlDocumentChartDataWindow"
+﻿<Window x:Class="WpfCommonCode.Office.OpenXmlDocumentChartDataWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfDemosCommonCode.Office"
-        xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+        xmlns:local="clr-namespace:WpfCommonCode.Office"
+        xmlns:CustomControls="clr-namespace:WpfCommonCode.CustomControls"
         mc:Ignorable="d"
         Title="Document Charts" Height="240" Width="700" Topmost="True">
     <Grid>

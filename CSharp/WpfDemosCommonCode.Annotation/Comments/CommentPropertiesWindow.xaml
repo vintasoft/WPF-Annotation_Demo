@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
-        xmlns:an="clr-namespace:WpfDemosCommonCode.Annotation"
-        xmlns:local="clr-namespace:WpfDemosCommonCode.Annotation"
-        xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls" x:Class="WpfDemosCommonCode.Annotation.CommentPropertiesWindow"
+        xmlns:an="clr-namespace:WpfCommonCode.Annotation"
+        xmlns:local="clr-namespace:WpfCommonCode.Annotation"
+        xmlns:CustomControls="clr-namespace:WpfCommonCode.CustomControls" x:Class="WpfCommonCode.Annotation.CommentPropertiesWindow"
         mc:Ignorable="d"
         Title="Comment Properties" Height="389" Width="500" MinWidth="500" MinHeight="389">
     <Grid>

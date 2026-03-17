@@ -1,4 +1,4 @@
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 
 using System;
 using System.Collections.Generic;
@@ -19,11 +19,11 @@ using Vintasoft.Imaging.ImageProcessing;
 using Vintasoft.Imaging.Wpf.UI.VisualTools;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
-using WpfDemosCommonCode.Imaging;
-using WpfDemosCommonCode.Imaging.Codecs;
-using WpfDemosCommonCode.Office;
+using WpfCommonCode.Imaging;
+using WpfCommonCode.Imaging.Codecs;
+using WpfCommonCode.Office;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// A control that allows to add annotations to an image in viewer.

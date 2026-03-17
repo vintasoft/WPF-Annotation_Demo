@@ -10,7 +10,7 @@ using Vintasoft.Imaging.Annotation.Wpf.UI.VisualTools;
 using Vintasoft.Imaging.Wpf;
 using Vintasoft.Imaging.Wpf.UI;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents a user control that displays annotation comments of focused page on image viewer.

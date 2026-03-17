@@ -1,4 +1,4 @@
-﻿namespace WpfDemosCommonCode.Annotation
+﻿namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Provides the ability to create the annotation icon name for annotation type.

@@ -6,7 +6,7 @@ using System;
 
 using Vintasoft.Imaging.Pdf.Tree.InteractiveForms;
 
-namespace WpfDemosCommonCode.Pdf.Security
+namespace WpfCommonCode.Pdf.Security
 {
     /// <summary>
     /// Provides data for an event when property with generic type is changing.

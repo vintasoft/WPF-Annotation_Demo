@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using Vintasoft.Imaging.Annotation.Comments;
 #endif
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents the control that allows to display a comment state history.

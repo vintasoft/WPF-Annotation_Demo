@@ -3,7 +3,7 @@
 using Vintasoft.Imaging.ColorManagement;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to view and edit the color transformation set.

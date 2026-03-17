@@ -1,10 +1,10 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 
 using Vintasoft.Imaging.Wpf.UI;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents rounded interaction point for vertices of triangle annotation.

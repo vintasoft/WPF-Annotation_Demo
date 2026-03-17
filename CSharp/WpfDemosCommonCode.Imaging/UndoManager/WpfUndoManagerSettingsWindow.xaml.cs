@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
@@ -7,7 +7,7 @@ using Vintasoft.Data;
 using Vintasoft.Imaging.Undo;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window for editing the undo manager settings.

@@ -13,7 +13,7 @@ using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 using Vintasoft.Imaging.Office.OpenXml.Wpf.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.Wpf;
 
-namespace WpfDemosCommonCode.Office
+namespace WpfCommonCode.Office
 {
     /// <summary>
     /// Interaction logic for OpenXmlDocumentChartDataWindow.xaml

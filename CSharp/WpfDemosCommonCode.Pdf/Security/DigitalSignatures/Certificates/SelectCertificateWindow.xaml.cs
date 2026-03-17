@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System;
 using Microsoft.Win32;
 
-namespace WpfDemosCommonCode.Pdf.Security
+namespace WpfCommonCode.Pdf.Security
 {
     /// <summary>
     /// Form that allows to select the X509 Certificate from list.

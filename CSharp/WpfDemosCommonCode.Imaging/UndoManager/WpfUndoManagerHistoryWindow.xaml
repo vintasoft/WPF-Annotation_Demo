@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfDemosCommonCode.Imaging.WpfUndoManagerHistoryWindow"
+﻿<Window x:Class="WpfCommonCode.Imaging.WpfUndoManagerHistoryWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Undo Manager History" MinHeight="370" MinWidth="290" Height="370" Width="290">

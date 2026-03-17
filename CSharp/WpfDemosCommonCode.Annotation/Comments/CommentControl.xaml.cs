@@ -15,7 +15,7 @@ using Vintasoft.Imaging.Annotation.UI.Comments;
 using Vintasoft.Imaging.Wpf;
 using Vintasoft.Imaging.Wpf.UI;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents a control that allows to display a comment in image viewer.

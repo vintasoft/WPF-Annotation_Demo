@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to view and edit the server settings.

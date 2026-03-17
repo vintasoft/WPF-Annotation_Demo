@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfDemosCommonCode.Pdf.Security.SelectCertificateWindow"
+﻿<Window x:Class="WpfCommonCode.Pdf.Security.SelectCertificateWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Select Certificate" Height="271" Width="581" MinHeight="150" MinWidth="400" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner">

@@ -7,10 +7,10 @@ using Vintasoft.Imaging.Fonts;
 using Vintasoft.Imaging.Pdf;
 using Vintasoft.Imaging.Utils;
 
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode.Imaging;
 
 
-namespace WpfDemosCommonCode.Pdf
+namespace WpfCommonCode.Pdf
 {
     /// <summary>
     /// Allows to use custom PDF font program controller for documents.

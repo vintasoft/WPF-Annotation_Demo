@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
     xmlns:vsai="clr-namespace:Vintasoft.Imaging.Annotation.Wpf.UI;assembly=Vintasoft.Imaging.Annotation.Wpf.UI"
-    xmlns:widcci="clr-namespace:WpfDemosCommonCode.Imaging"
+    xmlns:widcci="clr-namespace:WpfCommonCode.Imaging"
     xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
     xmlns:cc="clr-namespace:WpfAnnotationDemo"
-    xmlns:cca="clr-namespace:WpfDemosCommonCode.Annotation"
+    xmlns:cca="clr-namespace:WpfCommonCode.Annotation"
     Title="VintaSoft WPF Annotation Demo" Width="1150" Height="600"
     Loaded="Window_Loaded"
     Closed="Window_Closed"
@@ -131,20 +131,20 @@
             </Style.Triggers>
         </Style>
 
-        <BitmapImage x:Key="RectangleIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Rectangle.png" />
-        <BitmapImage x:Key="EllipseIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/ellipse.png" />
-        <BitmapImage x:Key="HighlightIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/highlight.png" />
-        <BitmapImage x:Key="EmbeddedImageIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/embeddedImage.png" />
-        <BitmapImage x:Key="ReferencedImageIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/referencedImage.png" />
-        <BitmapImage x:Key="TextHighlightIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/TextHighlight.png" />
-        <BitmapImage x:Key="TextIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Text.png" />
-        <BitmapImage x:Key="StampIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/rubberstamp.png" />
-        <BitmapImage x:Key="LineIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Line.png" />
-        <BitmapImage x:Key="LinesIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Lines.png" />
-        <BitmapImage x:Key="FreehandLinesIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/FreehandLines.png" />
-        <BitmapImage x:Key="PolygonIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Polygon.png" />
-        <BitmapImage x:Key="RulerIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Ruler.png" />
-        <BitmapImage x:Key="TriangleIcon" UriSource="WpfDemosCommonCode.Annotation/Icons/Triangle.png" />
+        <BitmapImage x:Key="RectangleIcon" UriSource="WpfCommonCode.Annotation/Icons/Rectangle.png" />
+        <BitmapImage x:Key="EllipseIcon" UriSource="WpfCommonCode.Annotation/Icons/ellipse.png" />
+        <BitmapImage x:Key="HighlightIcon" UriSource="WpfCommonCode.Annotation/Icons/highlight.png" />
+        <BitmapImage x:Key="EmbeddedImageIcon" UriSource="WpfCommonCode.Annotation/Icons/embeddedImage.png" />
+        <BitmapImage x:Key="ReferencedImageIcon" UriSource="WpfCommonCode.Annotation/Icons/referencedImage.png" />
+        <BitmapImage x:Key="TextHighlightIcon" UriSource="WpfCommonCode.Annotation/Icons/TextHighlight.png" />
+        <BitmapImage x:Key="TextIcon" UriSource="WpfCommonCode.Annotation/Icons/Text.png" />
+        <BitmapImage x:Key="StampIcon" UriSource="WpfCommonCode.Annotation/Icons/rubberstamp.png" />
+        <BitmapImage x:Key="LineIcon" UriSource="WpfCommonCode.Annotation/Icons/Line.png" />
+        <BitmapImage x:Key="LinesIcon" UriSource="WpfCommonCode.Annotation/Icons/Lines.png" />
+        <BitmapImage x:Key="FreehandLinesIcon" UriSource="WpfCommonCode.Annotation/Icons/FreehandLines.png" />
+        <BitmapImage x:Key="PolygonIcon" UriSource="WpfCommonCode.Annotation/Icons/Polygon.png" />
+        <BitmapImage x:Key="RulerIcon" UriSource="WpfCommonCode.Annotation/Icons/Ruler.png" />
+        <BitmapImage x:Key="TriangleIcon" UriSource="WpfCommonCode.Annotation/Icons/Triangle.png" />
     </Window.Resources>
 
     <Window.CommandBindings>

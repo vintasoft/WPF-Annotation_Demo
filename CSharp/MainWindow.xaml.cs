@@ -29,14 +29,14 @@ using Vintasoft.Imaging.Wpf.UI;
 using Vintasoft.Imaging.Wpf.UI.VisualTools;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
-using WpfDemosCommonCode;
-using WpfDemosCommonCode.Annotation;
-using WpfDemosCommonCode.Imaging;
-using WpfDemosCommonCode.Imaging.Codecs;
-using WpfDemosCommonCode.Imaging.Codecs.Dialogs;
+using WpfCommonCode;
+using WpfCommonCode.Annotation;
+using WpfCommonCode.Imaging;
+using WpfCommonCode.Imaging.Codecs;
+using WpfCommonCode.Imaging.Codecs.Dialogs;
 
 #if !REMOVE_PDF_PLUGIN
-using WpfDemosCommonCode.Pdf;
+using WpfCommonCode.Pdf;
 #endif
 
 
@@ -490,7 +490,7 @@ namespace WpfAnnotationDemo
             base.OnContentRendered(e);
 
 #if !REMOVE_OFFICE_PLUGIN
-            WpfDemosCommonCode.Office.OfficeDocumentVisualEditorWindow documentVisualEditorForm = new WpfDemosCommonCode.Office.OfficeDocumentVisualEditorWindow();
+            WpfCommonCode.Office.OfficeDocumentVisualEditorWindow documentVisualEditorForm = new WpfCommonCode.Office.OfficeDocumentVisualEditorWindow();
             documentVisualEditorForm.Owner = this;
             documentVisualEditorForm.AddVisualTool(annotationViewer1.AnnotationVisualTool);
 #endif
@@ -1855,8 +1855,8 @@ namespace WpfAnnotationDemo
         private void PdfPageSignatureManager_SignatureRequest(object sender, SignatureRequestEventArgs e)
         {
             // create dialog that allows to perform signing of PDF document
-            WpfDemosCommonCode.Pdf.Security.CreateSignatureFieldWindow dlg =
-                new WpfDemosCommonCode.Pdf.Security.CreateSignatureFieldWindow(e.SignatureField);
+            WpfCommonCode.Pdf.Security.CreateSignatureFieldWindow dlg =
+                new WpfCommonCode.Pdf.Security.CreateSignatureFieldWindow(e.SignatureField);
 
             dlg.CanChangeSignatureAppearance = false;
             dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -1874,8 +1874,8 @@ namespace WpfAnnotationDemo
         {
 #if !REMOVE_PDF_PLUGIN
             // create dialog that allows to view information about document signatures and verify signature
-            WpfDemosCommonCode.Pdf.Security.DocumentSignaturesWindow dlg =
-                new WpfDemosCommonCode.Pdf.Security.DocumentSignaturesWindow(_pdfDocument);
+            WpfCommonCode.Pdf.Security.DocumentSignaturesWindow dlg =
+                new WpfCommonCode.Pdf.Security.DocumentSignaturesWindow(_pdfDocument);
 
             dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dlg.Owner = this;

@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="WpfDemosCommonCode.Annotation.AnnotationCommentsControl"
+﻿<UserControl x:Class="WpfCommonCode.Annotation.AnnotationCommentsControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfDemosCommonCode.Annotation"
+             xmlns:local="clr-namespace:WpfCommonCode.Annotation"
              mc:Ignorable="d" 
              MinWidth="210" MinHeight="170"
              d:DesignHeight="250" d:DesignWidth="220">

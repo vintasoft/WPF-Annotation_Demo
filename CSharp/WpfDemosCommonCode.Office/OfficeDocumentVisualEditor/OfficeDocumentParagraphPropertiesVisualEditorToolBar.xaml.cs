@@ -12,7 +12,7 @@ using Vintasoft.Imaging.Text;
 using Vintasoft.Imaging.Utils;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
-namespace WpfDemosCommonCode.Office
+namespace WpfCommonCode.Office
 {
     /// <summary>
     /// Interaction logic for OfficeDocumentParagraphPropertiesVisualEditorToolBar.xaml

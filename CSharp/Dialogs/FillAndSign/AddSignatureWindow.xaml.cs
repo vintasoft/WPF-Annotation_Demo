@@ -8,8 +8,8 @@ using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.Wpf.UI;
 using Vintasoft.Imaging.Wpf;
 
-using WpfDemosCommonCode;
-using WpfDemosCommonCode.Imaging;
+using WpfCommonCode;
+using WpfCommonCode.Imaging;
 
 namespace WpfAnnotationDemo
 {
@@ -56,7 +56,7 @@ namespace WpfAnnotationDemo
             Title = string.Format("Create {0} Template", category);
 
             // set the filter for open file dialog
-            WpfDemosCommonCode.Imaging.Codecs.CodecsFileFilters.SetFilters(_openFileDialog);
+            WpfCommonCode.Imaging.Codecs.CodecsFileFilters.SetFilters(_openFileDialog);
 
             // create the build manager for annotation templates
             _buildManager = new WpfAnnotationTemplateBuildManager(annotationViewer, templateManager);

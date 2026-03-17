@@ -1,10 +1,10 @@
-using System.Windows.Media;
+﻿using System.Windows.Media;
 
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.Wpf.UI;
 using Vintasoft.Imaging.Annotation.Wpf.UI.VisualTools.UserInteraction;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Class that determines how to display the annotation that displays a triangle

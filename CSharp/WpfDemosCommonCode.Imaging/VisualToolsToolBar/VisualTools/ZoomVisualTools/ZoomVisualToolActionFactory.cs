@@ -4,7 +4,7 @@ using System.Windows.Media.Imaging;
 using Vintasoft.Imaging.Wpf.UI.VisualTools;
 
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Creates visual tool action, which allows to enable/disable visual tool <see cref="WpfMagnifierTool"/> in image viewer, and adds action to the toolstrip.

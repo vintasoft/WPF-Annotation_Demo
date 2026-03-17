@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
@@ -12,7 +12,7 @@ using Vintasoft.Imaging.Wpf;
 using Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction;
 
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Class that determines how to display the annotation that displays a mark

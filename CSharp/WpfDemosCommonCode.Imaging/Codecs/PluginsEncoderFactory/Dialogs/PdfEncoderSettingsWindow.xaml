@@ -1,8 +1,8 @@
-﻿<Window x:Class="WpfDemosCommonCode.Imaging.Codecs.Dialogs.PdfEncoderSettingsWindow"
+﻿<Window x:Class="WpfCommonCode.Imaging.Codecs.Dialogs.PdfEncoderSettingsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.Imaging.Codecs.Dialogs"
-    xmlns:userControls="clr-namespace:WpfDemosCommonCode.CustomControls"
+    xmlns:CustomControls="clr-namespace:WpfCommonCode.Imaging.Codecs.Dialogs"
+    xmlns:userControls="clr-namespace:WpfCommonCode.CustomControls"
     Title="PDF Encoder Settings" Height="500" Width="359" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>

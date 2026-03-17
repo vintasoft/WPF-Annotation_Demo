@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Drawing;
 
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary> 
     /// Annotations math.

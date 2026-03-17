@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -9,7 +9,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.Rendering;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Class that holds information about the annotation that displays a mark.

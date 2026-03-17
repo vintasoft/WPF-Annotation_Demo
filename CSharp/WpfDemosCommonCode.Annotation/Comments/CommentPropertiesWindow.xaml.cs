@@ -7,7 +7,7 @@ using Vintasoft.Imaging.Annotation.Comments;
 #endif
 using Vintasoft.Imaging.Wpf;
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents a window that allows to display the comment properties.

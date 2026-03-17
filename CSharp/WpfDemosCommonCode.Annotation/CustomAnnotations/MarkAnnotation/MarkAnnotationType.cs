@@ -1,4 +1,4 @@
-namespace WpfDemosCommonCode.Annotation
+﻿namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Specifies an available types of mark annotation.

@@ -3,7 +3,7 @@
 using Vintasoft.Imaging.Annotation.Comments;
 #endif
 
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Represents a window that allows to display a comment state history.

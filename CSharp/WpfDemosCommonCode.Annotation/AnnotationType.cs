@@ -1,5 +1,5 @@
 ﻿
-namespace WpfDemosCommonCode.Annotation
+namespace WpfCommonCode.Annotation
 {
     /// <summary>
     /// Specifies available types of annotations, which can be built.

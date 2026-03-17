@@ -3,7 +3,7 @@
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.UI;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Allows to register the ability to edit properries of <see cref="VintasoftImage"/> in property grid.
