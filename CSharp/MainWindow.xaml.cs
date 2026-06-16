@@ -214,17 +214,10 @@ namespace WpfAnnotationDemo
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// Initializes the <see cref="MainWindow"/> class.
         /// </summary>
-        public MainWindow()
+        static MainWindow()
         {
-            // register the evaluation license for VintaSoft Imaging .NET SDK
-            Vintasoft.Imaging.ImagingGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
-
-            InitializeComponent();
-
-            InitializeAddAnnotationMenuItems();
-
             Jbig2AssemblyLoader.Load();
             Jpeg2000AssemblyLoader.Load();
             DicomAssemblyLoader.Load();
@@ -236,6 +229,23 @@ namespace WpfAnnotationDemo
 #if !REMOVE_OFFICE_PLUGIN
             AnnotationOfficeWpfUIAssembly.Init();
 #endif
+
+            // set CustomFontProgramsController for all opened documents
+            CustomFontProgramsController.SetDefaultFontProgramsController();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
+        public MainWindow()
+        {
+            // register the evaluation license for VintaSoft Imaging .NET SDK
+            Vintasoft.Imaging.ImagingGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
+
+            InitializeComponent();
+
+            InitializeAddAnnotationMenuItems();
+
 
             annotationViewer1.AnnotationVisualTool.ChangeFocusedItemBeforeInteraction = true;
 
@@ -356,9 +366,6 @@ namespace WpfAnnotationDemo
                 typeof(WpfTriangleAnnotationView));
 
             annotationViewer1.AnnotationDataController.AnnotationDataDeserializationException += new EventHandler<AnnotationDataDeserializationExceptionEventArgs>(AnnotationDataController_AnnotationDataDeserializationException);
-
-            // set CustomFontProgramsController for all opened PDF documents
-            CustomFontProgramsController.SetDefaultFontProgramsController();
 
             DocumentPasswordWindow.EnableAuthentication(annotationViewer1);
 
